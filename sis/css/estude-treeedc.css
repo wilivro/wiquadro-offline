@@ -1,0 +1,102 @@
+.edc-row
+    {
+        font-family: roboto !important;
+        font-weight: lighter;
+        height: 48px;
+        line-height: 48px;
+        background: #DEDEDE;
+        color: #2e3c4a;
+
+    }
+    .edc-text-container:hover .edc-row
+    {
+        background: #13a4e2;
+        color:#FFF !important;
+        cursor:pointer;
+    }
+    .edc-text-container:hover .getChildrenIcon
+    {
+        background: #13a4e2;
+        color:#FFF !important;
+        cursor:pointer;
+    }
+     .edc-text-container:hover a
+    {
+        color:#FFF !important;
+        text-decoration: none;
+    }
+    .edc-text-container:hover .edc-row::after
+    {
+        border-color:transparent #13a4e2;
+    }
+    .edc-row:hover a
+    {
+        color:#FFF !important;
+    }
+     .edc-row-container
+     {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .edc-row::after
+    {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 9px 0 9px 8px;
+    border-color: transparent #DEDEDE;
+    display: block;
+    width: 0;
+    z-index: 1;
+    right: -8px;
+    margin-top: 16px;
+    }
+    .edc-row a
+    {
+        color: #2e3c4a !important;
+    }
+    .radioProgress
+    {
+        display:inline-block;
+    }
+    .getChildrenIcon
+    {
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        background: #DEDEDE;
+    }
+
+    .edc-accordion .panel-default,
+    .edc-accordion .panel-heading,
+    .edc-accordion .panel-body
+    {
+        border:0;
+        padding:0;
+        background: transparent !important;
+        box-shadow: 0 0 0 0 white !important;
+        -webkit-box-shadow: 0 0 0 0 white !important;
+    }
+
+    .tree-edc-table-head
+    {
+        margin-top: 90px;
+        padding-top: 20px;
+        z-index: 2;
+        background: #FFF
+    }
+     .tree-edc-table-head .row
+    {
+        margin-left: 50px;
+        padding:0;
+    }
+    
+    .main
+    {
+        margin-top:150px !important;
+    }
+    .w-breadcrumb
+    {
+        position: fixed !important;
+        z-index: 100;
+    }

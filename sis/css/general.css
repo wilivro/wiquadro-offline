@@ -1,0 +1,227 @@
+/* 
+    Document   : general
+    Created on : 16/09/2013, 13:19:53
+    Author     : David Figueiredo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+div#topo div.navbar-inner
+{
+    height: 150px;
+    /*border: 3px solid;*/
+    border-radius: 0px;
+    /*Webkit*/
+    background: -webkit-gradient(linear, 100% 46%, 15% 21%, from(#2C4C3E), to(#2C4C3E), color-stop(.7,#346952));
+    /*-webkit-border-image: url("borda.fw.png") 15 15 60 6 / 15px round stretch;*/
+    /*Firefox*/
+    background: -moz-linear-gradient(100% 100% 180deg,#2C4C3E, #346952, #2C4C3E 100%);
+    /*-moz-border-image: url("borda.fw.png") 15 15 60 6 / 15px round stretch;*/
+    /*IE*/
+    background-image: -ms-linear-gradient(right, #2C4C3E 0%, #346952 50%, #2C4C3E 100%);
+}
+
+div#login
+{
+    border: 3px solid;
+    border-radius: 0px;
+    /*Webkit*/
+    background: -webkit-gradient(linear, 100% 46%, 15% 21%, from(#2C4C3E), to(#2C4C3E), color-stop(.7,#346952));
+    /*-webkit-border-image: url("borda.fw.png") 15 / 15px 15px 15px 15px repeat;*/
+    /*Firefox*/
+    background: -moz-linear-gradient(100% 100% 180deg,#2C4C3E, #346952, #2C4C3E 100%);
+    /*-moz-border-image: url("borda.fw.png") 15 / 15px 15px 15px 15px round stretch;*/
+    /*IE*/
+    background-image: -ms-linear-gradient(right, #2C4C3E 0%, #346952 50%, #2C4C3E 100%);
+    height: 380px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+div#passo-a-passo
+{
+    border-top: 2px dotted #cccccc;
+    padding-top: 30px;
+}
+
+div#passo-a-passo div
+{
+    text-align: center;
+}
+
+div#passo-a-passo div.par
+{
+    padding-top: 30px;
+}
+
+div#passo-a-passo div h4
+{
+    font-size: 21.5px;
+}
+
+div#passo-a-passo div p
+{
+    text-align: left;
+    color: #999999;
+}
+
+div#footer
+{
+    /*Webkit*/
+    background: -webkit-gradient(linear, 100% 46%, 15% 21%, from(#2C4C3E), to(#2C4C3E), color-stop(.7,#346952));
+/*    -webkit-border-image: url("borda.fw.png") 15 15 60 6 / 15px 0px 15px 0px round stretch; */
+    /*Firefox*/
+    background: -moz-linear-gradient(100% 100% 180deg,#2C4C3E, #346952, #2C4C3E 100%);
+/*    -moz-border-image: url("borda.fw.png") 15 15 60 6 / 10px 0px 10px 0px round stretch;*/
+    /*IE*/
+    background-image: -ms-linear-gradient(right, #2C4C3E 0%, #346952 50%, #2C4C3E 100%);
+    
+    height: auto;
+    margin-top: 20px;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    color: #FFF;
+    font-family: "verdana";
+}
+div#footer label, .labellogo
+{
+    font-size: 38.5px;
+    margin-bottom: 15px;
+}
+div#informacoes label
+{
+    color: #87A5DC;
+}
+div#newsletter label
+{
+    color: #DCA33A;
+}
+div#loginForm, div#registerForm, div#passo-a-passo h1, div#footer label, .labellogo
+{
+    font-family: "Gabriola";
+}
+
+div#passo-a-passo h1
+{
+    color: #4C4C4C;
+}
+
+div#passo-a-passo p
+{
+    font-family: "verdana";
+}
+
+div#login label
+{
+    font-size: 25.5px;
+}
+
+.wiquadro-btn
+{
+    background: transparent;
+    border: 2px solid #FFF;
+    color: #FFF;
+    font-family: "verdana";
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+div.buttonsRight
+{
+    text-align: right;
+}
+
+div#social
+{
+    text-align: left;
+}
+
+div#copyright
+{
+    margin-top: 140px;
+}
+
+div#copyright label
+{
+    display: initial;
+}
+
+div#informacoes ul
+{
+    list-style: none;
+    margin: 0;
+}
+
+div#informacoes ul li
+{
+    margin-bottom: 5px;
+}
+
+/*div.form-index .row
+{
+    margin-top: 10px;
+}*/
+
+#loginForm, #registerForm
+{
+    margin-top: 20px;
+}
+
+div.top-novoAluno
+{
+    text-align: center;
+}
+
+div.form-create
+{
+    font-family: "Gabriola";
+    padding: 25px;
+    font-size: 22px;
+}
+
+.top-novoAluno
+{
+    font-family: "Gabriola";
+    margin-bottom: 20px;
+}
+
+.top-novoAluno h2
+{
+    font-size: 55px;
+    color: #333;
+    border-bottom: 1px dashed #999;
+    padding-bottom: 20px;
+}
+
+.form-info
+{
+    text-align: center;
+    font-size: 16.5px;
+    font-family:  "MuseoSans300";
+    line-height: 25px;
+}
+
+.form-info h4
+{
+    font-family: "Gabriola";
+    font-size: 30px;
+}
+
+.form-info div.alert p, .form-info div.alert h4
+{
+    margin: 25px 0;
+}
+
+.form-info div.alert
+{
+    padding: 10px;
+    min-height: 278px;
+}
+
+
+/*
+border-color: #a47e3c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #dbc59e;
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #dbc59e;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #dbc59e;
+*/

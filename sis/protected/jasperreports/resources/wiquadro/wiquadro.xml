@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jdbcDataSource exportedWithPermissions="true"><folder>/wiquadro</folder><name>wiquadro</name><version>1</version><label>wiquadro</label><description></description><creationDate>2014-01-28T09:09:01.898-03:00</creationDate><updateDate>2014-01-28T09:10:43.315-03:00</updateDate><driver>org.mariadb.jdbc.Driver</driver><connectionUrl>jdbc:mysql://localhost:3306/wiquadro</connectionUrl><connectionUser>root</connectionUser><connectionPassword>ENC&lt;A3C480AD39A36400FB19D5CF303F32CD&gt;</connectionPassword><timezone></timezone></jdbcDataSource>

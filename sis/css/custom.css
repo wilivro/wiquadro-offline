@@ -1,0 +1,26 @@
+html{min-height: 100%; position: relative;}
+.alert{border-radius: 0;}
+.btn{border-radius: 0;}
+.btn .fa{color: #FFF;}
+.btn.btn-default .fa{color: #000;}
+.btn-big {width: 185px; height: 50px; padding-top: 14px;}
+.btn-inverse{background: #2F2F2F; border-color: #333; color: #FFF;}
+.btn-brown{background: #00a0d9; border-color: #00a0d9; color: #FFF;}
+.btn-coraltree{background: #A36F7D; border-color: #a36178; color: #FFF;}
+.btn-blue {background-color: #00a0d9; border-color: #00a0d9;}
+.btn-blue:hover {background-color: #0291c4; border-color: #00a0d9;}
+.btn-aqua{background: #01C7DE; border-color: #1ccede; color: #FFF;}
+.btn-deeppink{background: #EC386F; border-color: #ec2665; color: #FFF;}
+.btn-grey{background: #90ACC0; border-color: #7aaac0; color: #FFF;}
+.btn-darkgray {background: #2e4a58; border-color: #2e4a58; color: #FFF;}
+.btn-darkgray:hover {background: #20343e; border-color: #20343e; color: #FFF;}
+.btn-yellow{background: #f1b019 !important; border-color: #f1b019; color: #FFF;}
+td.buttoncolumn{width:1%; white-space:nowrap;}
+.menu-fixed-footer{width: 100%; height: 30px; font-size: 12px;}
+.menu-fixed-footer a{color: #FFF;}
+/*Style Status das turmas*/
+.label-ATIVA, .label-CADASTRADA, .label-CANCELADA, .label-CONCLUIDA{color: #FFF;}
+.label-ATIVA{background: #5AB45A;}
+.label-CONCLUIDA{background: #2d6987;}
+.label-CANCELADA{background: #953b39;}
+.label-CADASTRADA{background: #999999;}

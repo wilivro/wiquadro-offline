@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/wiquadro/sis/protected/models</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../css/nv.d3.css" rel="stylesheet">
+  <link href="../../../css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../../../js/html5shiv.min.js"></script>
+  <script src="../../../js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../../../index.html">/var/www/wiquadro</a></li>
+        <li><a href="../../index.html">sis</a></li>
+        <li><a href="../index.html">protected</a></li>
+        <li><a href="index.html">models</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="AppModel.php.html#8">AppModel</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#4">Usuario</a></td><td class="text-right">8%</td></tr>
+       <tr><td><a href="Forum.php.html#2">Forum</a></td><td class="text-right">8%</td></tr>
+       <tr><td><a href="Usuariogrupousuario.php.html#19">Usuariogrupousuario</a></td><td class="text-right">20%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Usuario.php.html#4">Usuario</a></td><td class="text-right">13445</td></tr>
+       <tr><td><a href="Forum.php.html#2">Forum</a></td><td class="text-right">103</td></tr>
+       <tr><td><a href="Usuariogrupousuario.php.html#19">Usuariogrupousuario</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="AppModel.php.html#8">AppModel</a></td><td class="text-right">72</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Usuario.php.html#663"><abbr title="Usuario::isType">isType</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#645"><abbr title="Usuario::logout">logout</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#673"><abbr title="Usuario::getProfessorTurmas">getProfessorTurmas</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#691"><abbr title="Usuario::getPermissao">getPermissao</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#699"><abbr title="Usuario::getPermissoes">getPermissoes</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#623"><abbr title="Usuario::getUser">getUser</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#608"><abbr title="Usuario::isItemAssigned">isItemAssigned</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#545"><abbr title="Usuario::login">login</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#511"><abbr title="Usuario::createStudentTest">createStudentTest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#565"><abbr title="Usuario::remoteAccessFromTeacher">remoteAccessFromTeacher</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#581"><abbr title="Usuario::returnFromRemoteAccess">returnFromRemoteAccess</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#595"><abbr title="Usuario::deleteAllAssignments">deleteAllAssignments</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#710"><abbr title="Usuario::anonymous function">anonymous function</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#731"><abbr title="Usuario::checkPermission">checkPermission</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuariogrupousuario.php.html#51"><abbr title="Usuariogrupousuario::rules">rules</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuariogrupousuario.php.html#21"><abbr title="Usuariogrupousuario::afterSave">afterSave</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuariogrupousuario.php.html#84"><abbr title="Usuariogrupousuario::attributeLabels">attributeLabels</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuariogrupousuario.php.html#107"><abbr title="Usuariogrupousuario::search">search</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuariogrupousuario.php.html#129"><abbr title="Usuariogrupousuario::model">model</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#878"><abbr title="Usuario::getBoletimData">getBoletimData</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#869"><abbr title="Usuario::isMatriculado">isMatriculado</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#750"><abbr title="Usuario::canUpdate">canUpdate</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#742"><abbr title="Usuario::getPermissaoForProjeto">getPermissaoForProjeto</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#778"><abbr title="Usuario::getByProjeto">getByProjeto</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#796"><abbr title="Usuario::getUserMenu">getUserMenu</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#832"><abbr title="Usuario::checkPermissaoAluno">checkPermissaoAluno</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#463"><abbr title="Usuario::canTakeATest">canTakeATest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#438"><abbr title="Usuario::isAllowedToTakeATest">isAllowedToTakeATest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Forum.php.html#63"><abbr title="Forum::logout">logout</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Forum.php.html#46"><abbr title="Forum::login">login</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#16"><abbr title="Usuario::beforeValidate">beforeValidate</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#31"><abbr title="Usuario::afterValidate">afterValidate</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#112"><abbr title="Usuario::updateGuid">updateGuid</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Forum.php.html#37"><abbr title="Forum::remove_permission">remove_permission</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Forum.php.html#29"><abbr title="Forum::add_permission">add_permission</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AppModel.php.html#51"><abbr title="AppModel::mustNotBeNewRecord">mustNotBeNewRecord</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AppModel.php.html#32"><abbr title="AppModel::getStringErrors">getStringErrors</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Forum.php.html#4"><abbr title="Forum::create_user">create_user</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Forum.php.html#16"><abbr title="Forum::create_forum">create_forum</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Forum.php.html#23"><abbr title="Forum::update_forum">update_forum</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AppModel.php.html#15"><abbr title="AppModel::findAllAssoc">findAllAssoc</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#118"><abbr title="Usuario::isServerOnline">isServerOnline</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#330"><abbr title="Usuario::search">search</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#307"><abbr title="Usuario::scopes">scopes</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#351"><abbr title="Usuario::getExerciciosPendentes">getExerciciosPendentes</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#376"><abbr title="Usuario::getTestesPendentes">getTestesPendentes</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#405"><abbr title="Usuario::tarefasComplementares">tarefasComplementares</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#277"><abbr title="Usuario::onlyManagers">onlyManagers</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#230"><abbr title="Usuario::sendConfirmEmail">sendConfirmEmail</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#132"><abbr title="Usuario::isWiquadroEmail">isWiquadroEmail</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#144"><abbr title="Usuario::getIsAdmin">getIsAdmin</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#179"><abbr title="Usuario::rules">rules</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#123"><abbr title="Usuario::addRecaptchaValidator">addRecaptchaValidator</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#214"><abbr title="Usuario::attributeLabels">attributeLabels</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Usuario.php.html#74"><abbr title="Usuario::afterSave">afterSave</a></a></td><td class="text-right">20%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Usuario.php.html#832"><abbr title="Usuario::checkPermissaoAluno">checkPermissaoAluno</abbr></a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="Usuario.php.html#750"><abbr title="Usuario::canUpdate">canUpdate</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Usuario.php.html#463"><abbr title="Usuario::canTakeATest">canTakeATest</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Usuario.php.html#74"><abbr title="Usuario::afterSave">afterSave</abbr></a></td><td class="text-right">32</td></tr>
+       <tr><td><a href="Usuario.php.html#796"><abbr title="Usuario::getUserMenu">getUserMenu</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Usuariogrupousuario.php.html#21"><abbr title="Usuariogrupousuario::afterSave">afterSave</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Usuario.php.html#545"><abbr title="Usuario::login">login</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Usuario.php.html#16"><abbr title="Usuario::beforeValidate">beforeValidate</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Usuario.php.html#565"><abbr title="Usuario::remoteAccessFromTeacher">remoteAccessFromTeacher</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Usuario.php.html#878"><abbr title="Usuario::getBoletimData">getBoletimData</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Usuario.php.html#511"><abbr title="Usuario::createStudentTest">createStudentTest</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Usuario.php.html#144"><abbr title="Usuario::getIsAdmin">getIsAdmin</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Usuario.php.html#623"><abbr title="Usuario::getUser">getUser</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Usuario.php.html#123"><abbr title="Usuario::addRecaptchaValidator">addRecaptchaValidator</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Forum.php.html#46"><abbr title="Forum::login">login</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Usuario.php.html#673"><abbr title="Usuario::getProfessorTurmas">getProfessorTurmas</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Usuario.php.html#581"><abbr title="Usuario::returnFromRemoteAccess">returnFromRemoteAccess</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AppModel.php.html#32"><abbr title="AppModel::getStringErrors">getStringErrors</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Usuario.php.html#438"><abbr title="Usuario::isAllowedToTakeATest">isAllowedToTakeATest</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Usuario.php.html#277"><abbr title="Usuario::onlyManagers">onlyManagers</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Usuario.php.html#869"><abbr title="Usuario::isMatriculado">isMatriculado</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AppModel.php.html#15"><abbr title="AppModel::findAllAssoc">findAllAssoc</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Usuario.php.html#778"><abbr title="Usuario::getByProjeto">getByProjeto</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Forum.php.html#63"><abbr title="Forum::logout">logout</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AppModel.php.html#51"><abbr title="AppModel::mustNotBeNewRecord">mustNotBeNewRecord</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Usuario.php.html#595"><abbr title="Usuario::deleteAllAssignments">deleteAllAssignments</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Usuario.php.html#351"><abbr title="Usuario::getExerciciosPendentes">getExerciciosPendentes</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Usuario.php.html#132"><abbr title="Usuario::isWiquadroEmail">isWiquadroEmail</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Usuario.php.html#376"><abbr title="Usuario::getTestesPendentes">getTestesPendentes</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Usuario.php.html#608"><abbr title="Usuario::isItemAssigned">isItemAssigned</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Usuario.php.html#663"><abbr title="Usuario::isType">isType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Usuario.php.html#645"><abbr title="Usuario::logout">logout</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Usuario.php.html#731"><abbr title="Usuario::checkPermission">checkPermission</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 2.0.15</a> using <a href="http://php.net/" target="_top">PHP 5.5.12-2ubuntu4.2</a> and <a href="http://phpunit.de/">PHPUnit 4.5.0</a> at Mon Feb 23 11:06:36 BRT 2015.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+  <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../../../js/holder.js" type="text/javascript"></script>
+  <script src="../../../js/d3.min.js" type="text/javascript"></script>
+  <script src="../../../js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([1,2,0,1,0,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([54,0,0,1,0,0,0,0,1,0,0,9], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,8,"<a href=\"AppModel.php.html#8\">AppModel<\/a>"],[8.695652173913,11,"<a href=\"Forum.php.html#2\">Forum<\/a>"],[8.578431372549,132,"<a href=\"Usuario.php.html#4\">Usuario<\/a>"],[20,11,"<a href=\"Usuariogrupousuario.php.html#19\">Usuariogrupousuario<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,3,"<a href=\"AppModel.php.html#15\">AppModel::findAllAssoc<\/a>"],[0,3,"<a href=\"AppModel.php.html#32\">AppModel::getStringErrors<\/a>"],[0,2,"<a href=\"AppModel.php.html#51\">AppModel::mustNotBeNewRecord<\/a>"],[0,1,"<a href=\"Forum.php.html#4\">Forum::create_user<\/a>"],[100,1,"<a href=\"Forum.php.html#10\">Forum::update_user<\/a>"],[0,1,"<a href=\"Forum.php.html#16\">Forum::create_forum<\/a>"],[0,1,"<a href=\"Forum.php.html#23\">Forum::update_forum<\/a>"],[0,1,"<a href=\"Forum.php.html#29\">Forum::add_permission<\/a>"],[0,1,"<a href=\"Forum.php.html#37\">Forum::remove_permission<\/a>"],[0,3,"<a href=\"Forum.php.html#46\">Forum::login<\/a>"],[0,2,"<a href=\"Forum.php.html#63\">Forum::logout<\/a>"],[0,4,"<a href=\"Usuario.php.html#16\">Usuario::beforeValidate<\/a>"],[0,1,"<a href=\"Usuario.php.html#31\">Usuario::afterValidate<\/a>"],[100,1,"<a href=\"Usuario.php.html#38\">Usuario::afterFind<\/a>"],[70.588235294118,8,"<a href=\"Usuario.php.html#46\">Usuario::beforeSave<\/a>"],[20,7,"<a href=\"Usuario.php.html#74\">Usuario::afterSave<\/a>"],[100,1,"<a href=\"Usuario.php.html#107\">Usuario::isActive<\/a>"],[0,1,"<a href=\"Usuario.php.html#112\">Usuario::updateGuid<\/a>"],[0,1,"<a href=\"Usuario.php.html#118\">Usuario::isServerOnline<\/a>"],[0,3,"<a href=\"Usuario.php.html#123\">Usuario::addRecaptchaValidator<\/a>"],[0,2,"<a href=\"Usuario.php.html#132\">Usuario::isWiquadroEmail<\/a>"],[0,4,"<a href=\"Usuario.php.html#144\">Usuario::getIsAdmin<\/a>"],[100,1,"<a href=\"Usuario.php.html#161\">Usuario::tableName<\/a>"],[0,1,"<a href=\"Usuario.php.html#179\">Usuario::rules<\/a>"],[100,1,"<a href=\"Usuario.php.html#197\">Usuario::relations<\/a>"],[0,1,"<a href=\"Usuario.php.html#214\">Usuario::attributeLabels<\/a>"],[0,1,"<a href=\"Usuario.php.html#230\">Usuario::sendConfirmEmail<\/a>"],[0,3,"<a href=\"Usuario.php.html#277\">Usuario::onlyManagers<\/a>"],[0,1,"<a href=\"Usuario.php.html#307\">Usuario::scopes<\/a>"],[0,1,"<a href=\"Usuario.php.html#330\">Usuario::search<\/a>"],[100,1,"<a href=\"Usuario.php.html#346\">Usuario::model<\/a>"],[0,2,"<a href=\"Usuario.php.html#351\">Usuario::getExerciciosPendentes<\/a>"],[0,2,"<a href=\"Usuario.php.html#376\">Usuario::getTestesPendentes<\/a>"],[0,1,"<a href=\"Usuario.php.html#405\">Usuario::tarefasComplementares<\/a>"],[0,3,"<a href=\"Usuario.php.html#438\">Usuario::isAllowedToTakeATest<\/a>"],[0,7,"<a href=\"Usuario.php.html#463\">Usuario::canTakeATest<\/a>"],[0,4,"<a href=\"Usuario.php.html#511\">Usuario::createStudentTest<\/a>"],[0,5,"<a href=\"Usuario.php.html#545\">Usuario::login<\/a>"],[0,4,"<a href=\"Usuario.php.html#565\">Usuario::remoteAccessFromTeacher<\/a>"],[0,3,"<a href=\"Usuario.php.html#581\">Usuario::returnFromRemoteAccess<\/a>"],[0,2,"<a href=\"Usuario.php.html#595\">Usuario::deleteAllAssignments<\/a>"],[0,2,"<a href=\"Usuario.php.html#608\">Usuario::isItemAssigned<\/a>"],[0,3,"<a href=\"Usuario.php.html#623\">Usuario::getUser<\/a>"],[0,2,"<a href=\"Usuario.php.html#645\">Usuario::logout<\/a>"],[0,2,"<a href=\"Usuario.php.html#663\">Usuario::isType<\/a>"],[0,3,"<a href=\"Usuario.php.html#673\">Usuario::getProfessorTurmas<\/a>"],[0,1,"<a href=\"Usuario.php.html#691\">Usuario::getPermissao<\/a>"],[0,1,"<a href=\"Usuario.php.html#699\">Usuario::getPermissoes<\/a>"],[100,3,"<a href=\"Usuario.php.html#708\">Usuario::infoStatus<\/a>"],[0,1,"<a href=\"Usuario.php.html#710\">Usuario::anonymous function<\/a>"],[0,2,"<a href=\"Usuario.php.html#731\">Usuario::checkPermission<\/a>"],[0,1,"<a href=\"Usuario.php.html#742\">Usuario::getPermissaoForProjeto<\/a>"],[0,9,"<a href=\"Usuario.php.html#750\">Usuario::canUpdate<\/a>"],[0,2,"<a href=\"Usuario.php.html#778\">Usuario::getByProjeto<\/a>"],[0,5,"<a href=\"Usuario.php.html#796\">Usuario::getUserMenu<\/a>"],[0,11,"<a href=\"Usuario.php.html#832\">Usuario::checkPermissaoAluno<\/a>"],[0,3,"<a href=\"Usuario.php.html#869\">Usuario::isMatriculado<\/a>"],[0,4,"<a href=\"Usuario.php.html#878\">Usuario::getBoletimData<\/a>"],[0,5,"<a href=\"Usuariogrupousuario.php.html#21\">Usuariogrupousuario::afterSave<\/a>"],[100,1,"<a href=\"Usuariogrupousuario.php.html#43\">Usuariogrupousuario::tableName<\/a>"],[0,1,"<a href=\"Usuariogrupousuario.php.html#51\">Usuariogrupousuario::rules<\/a>"],[100,1,"<a href=\"Usuariogrupousuario.php.html#67\">Usuariogrupousuario::relations<\/a>"],[0,1,"<a href=\"Usuariogrupousuario.php.html#84\">Usuariogrupousuario::attributeLabels<\/a>"],[0,1,"<a href=\"Usuariogrupousuario.php.html#107\">Usuariogrupousuario::search<\/a>"],[0,1,"<a href=\"Usuariogrupousuario.php.html#129\">Usuariogrupousuario::model<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

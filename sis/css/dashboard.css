@@ -1,0 +1,75 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06/08/2014, 16:03:06
+    Author     : David
+*/
+
+#ul-dashBoard
+{
+    float: left;        
+}
+#ul-dashBoard li
+{
+    list-style: none;
+    color: #FFF;
+    padding: 10px;
+}
+
+li.container-li div.container-icone, li.container-li span.container-icone
+{
+    width: 100px;
+    height: 100px;
+    font-size: 80px;
+    display: table;
+    position: absolute;
+    top:45%;
+    left:50%;
+    margin-top:-60px;
+    margin-left:-50px;
+    text-align: center;
+}
+
+li.container-li a
+{
+    color: #FFFFFF;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.tooltipDashBoard
+{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.tooltipDashBoard > .title
+{
+    margin: 0;
+}
+.tooltipDashBoard > .descricao
+{
+    font-size: 12px;
+    display: none;
+}
+
+.container-li:hover .tooltipDashBoard
+{
+    min-height: 70px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 1s linear;
+}
+
+.container-li:hover .tooltipDashBoard > .descricao
+{
+    display: block;
+    transition: all 1s linear;
+}

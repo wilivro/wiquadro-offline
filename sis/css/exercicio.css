@@ -1,0 +1,118 @@
+.btn.btn-success.confirm
+    {
+        width:150px;
+        border:0;
+        background: #7cb52a !important;
+        height: 50px !important;
+        overflow: hidden;
+        margin:20px 10px 10px 0;
+        font-size: 16px;
+    }
+    .btn.btn-success.confirm .container-btn div
+    {
+        position:relative;
+        height: 42px;
+        width: 100%;
+        top:-34px;
+        vertical-align: middle;
+        -webkit-animation: confirmLeave .5s;
+        animation: confirmLeave .5s;
+    }
+    .btn.btn-success.confirm .container-btn div i
+    {
+        width: 100%;
+    }
+    .btn.btn-success.confirm:hover div
+    {
+        top:6px;
+        -webkit-animation: confirmHover .10s;
+        animation: confirmHover .10s;
+    }
+    
+    @-webkit-keyframes confirmLeave
+    {
+        from {top:0px;}
+        to {top:-34px}
+    }
+    @-webkit-keyframes confirmHover
+    {
+        from {top:-34px;}
+        to {top:0px}
+    }
+    @keyframes confirmLeave
+    {
+        from {top:0px;}
+        to {top:-34px}
+    }
+    @keyframes confirmHover
+    {
+        from {top:-34px;}
+        to {top:0px}
+    }
+
+    #getDica
+    {
+        border:0;
+        background: #13a4e2;
+        width:150px;
+        border:0;
+        height: 50px !important;
+        overflow: hidden;
+        font-size: 16px;
+        margin: 10px 0 0 0;
+    }
+     #getDica .container-btn div
+    {
+        position:relative;
+        height: 42px;
+        width: 100%;
+        top:-34px;
+        vertical-align: middle;
+        -webkit-animation: confirmLeave .5s;
+        animation: confirmLeave .5s;
+    }
+    #getDica:hover div
+    {
+        top:6px;
+        -webkit-animation: confirmHover .10s;
+        animation: confirmHover .10s;
+    }
+    .respondido span
+    {
+    	color:rgb(236, 151, 31) !important;
+    }
+    .dica
+    {
+        padding:10px !important;
+    }
+    .dica > div
+    {
+        border:1px solid #CCC; max-height:200px
+    }
+
+    .dica .headerDica > .headerDicaIcon
+    {
+        width: 30px;
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        background: #2e3c4a;
+        color:#FFF;
+        text-align: center;
+    }
+    .dica .headerDica .headerDicaText
+    {
+        width: 90px !important;
+        display: inline-block;
+        margin-left: -4px;
+        height: 30px;
+        line-height: 30px;
+        border:0;
+        background: #EEE !important;
+        color:#2e3c4a;
+        text-align: center;
+    }
+    .dica .dicaText
+    {
+        padding: 10px;
+    }

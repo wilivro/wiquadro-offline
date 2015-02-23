@@ -1,0 +1,409 @@
+/* 
+    Document   : sistema
+    Created on : 18/09/2013, 11:04:23
+    Author     : David
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*bootstrap*/
+
+.label-violet,
+.badge-violet
+{
+    background-color: #BA55D3;
+}
+
+.label-gold,
+.badge-gold
+{
+    background-color: #FFD700;
+}
+
+/*Fim bootstrap*/
+
+.btnLink, .btnLink:hover
+{
+    background: transparent;
+    border: 2px solid #FFF;
+    color: #FFF;
+    font-family: "verdana";
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+div.logo
+{
+    font-family: "Gabriola";
+    color: #fff;
+    font-size: 30px;
+    margin-top: 10px;
+}
+ul.menu
+{
+    margin-top: 20px;
+}
+
+ul.menu li
+{
+    list-style: none;
+    float: left;
+    margin: 5px;
+}
+
+div#topo div.navbar-inner
+{
+    height: 100px;
+/*    border: 3px solid;*/
+    border-radius: 0px;
+    /*Webkit*/
+    background: -webkit-gradient(linear, 100% 46%, 15% 21%, from(#2C4C3E), to(#2C4C3E), color-stop(.7,#346952));
+    /*-webkit-border-image: url("borda.fw.png") 15 15 60 6 / 15px round stretch;*/
+    /*Firefox*/
+    background: -moz-linear-gradient(100% 100% 180deg,#2C4C3E, #346952, #2C4C3E 100%);
+    /*-moz-border-image: url("borda.fw.png") 15 15 60 6 / 15px round stretch;*/
+    /*IE*/
+    background-image: -ms-linear-gradient(right, #2C4C3E 0%, #346952 50%, #2C4C3E 100%);
+}
+
+table.table td.acoes
+{
+    text-align: right;
+    vertical-align: middle;
+}
+
+form h2, h2.important
+{
+    border-bottom: dotted 2px #CCC;
+    font-family: "Gabriola";
+    color: #5AB45A;
+}
+
+div.infos
+{
+    border-bottom: dotted 2px #CCC;
+    margin-bottom: 10px;
+}
+
+div.infos h2
+{
+    font-family: "Gabriola";
+    color: #5AB45A;
+}
+
+div.infos div.menu
+{
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+div.infos div.menu ul
+{
+    margin-bottom: 0;
+    float: right;
+    margin-top: 15px;
+}
+
+a {
+  color: #5AB45A;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #356635;
+  text-decoration: underline;
+}
+
+div#exibeProjetos div.exibeProjeto, 
+div#exibeAulas div.exibeAula, div.exibeDisciplina
+{
+    background: rgba(0,0,0,0.03) url('imgs/project64.png') no-repeat center 10px;
+    min-height: 100px;
+    padding: 75px 10px 10px 10px;
+    border-radius: 5px;
+    border: 1px solid #DFDFDF;
+    text-align: center;
+    cursor: pointer;
+    -webkit-box-shadow: 0 2px 0 #DFDFDF;
+    -moz-box-shadow: 0 2px 0 #DFDFDF;
+    box-shadow: 0 2px 0 #DFDFDF;
+    margin-top: 15px;
+}
+
+div.exibeDisciplina
+{
+    background: rgba(0,0,0,0.03) url('imgs/disciplina64.png') no-repeat center 10px;
+    margin-bottom: 20px;
+}
+
+div#exibeAulas div.exibeAula
+{
+    background: rgba(0,0,0,0.03) url('imgs/lessons64.png') no-repeat center 10px;
+}
+
+div#exibeProjetos div.exibeProjeto:hover, 
+div#exibeAulas div.exibeAula:hover
+{
+    background-color: #f0efef;
+}
+
+div#exibeProjetos div.exibeProjeto h4,
+div#exibeAulas div.exibeAula h4
+{
+    height: 40px;
+}
+
+div#exibeProjetos div.exibeProjeto p,
+div#exibeAulas div.exibeAula p
+{
+    height: 75px;
+}
+
+div#exibeProjetos div.exibeProjeto span,
+div#exibeAulas div.exibeAula span
+{
+    margin-bottom: 10px;
+}
+
+div.modal form
+{
+    margin: 0;
+}
+
+td.button-column
+{
+    text-align: right;
+    width: 165px;
+}
+
+/*#addAoProjeto
+{
+    margin-top: 27px;
+}*/
+
+a.viewAulas
+{
+    margin-right: 5px;
+    width: 14px;
+}
+
+a.viewAulas:hover
+{
+    text-decoration: none;
+}
+
+/*table.tableAulas tr th
+{
+    background-color: #fcf8e3; 
+}*/
+
+tr.viewAulas
+{
+    background-color: rgba(0,0,0,0.03);
+}
+tr.viewAulas > td
+{
+    display: none;
+}
+
+tr.viewAulas td
+{
+    border-top: none;
+}
+
+tr.viewAulas ul
+{
+    padding: 25px;
+}
+
+tr.viewAulas ul li
+{
+    padding: 5px;
+}
+tr.viewAulas td > h3
+{
+    text-align: center;
+}
+
+tr.viewAulas td.button-column
+{
+    width: 160px;
+}
+
+tr.viewAulas td.order-column
+{
+    width: 120px;
+}
+
+tr.viewAulas td.descricao-column
+{
+    width: 500px;
+}
+
+tr.viewAulas thead > tr:hover > th
+{
+    background-color: #FFF;
+}
+
+tr.viewAulas tbody > tr:hover > td
+{
+    background-color: #fcf8e3;
+}
+
+tr.selected
+{
+    background-color: #f5f5f5;
+}
+
+tr.viewAulas .order-column i
+{
+    cursor: pointer;
+}
+
+/*form questão*/
+
+td.correta-column, th.correta-column, 
+td.letra-column, th.letra-column, td.remove-column
+{
+    text-align: center;
+}
+
+table#alternativas td.ordem-column
+{
+    line-height: 35px;
+}
+
+span.reset
+{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+div.image
+{
+    border: 2px dashed #5AB45A;
+    height: 150px;
+    
+}
+
+table#dicas td.order-column, td.remove-column
+{
+    padding-top: 20px;
+}
+
+table#alternativas td.remove-column, table#alternativas td.correta-column
+{
+    padding-top: 15px;
+}
+td.order-column input, td.letra-column input
+{
+    width: 16px;
+}
+
+td.enunciado, th.enunciado
+{
+    width: 70%;
+}
+
+/*Style Status das turmas*/
+.label-ATIVA, .label-CADASTRADA, .label-CANCELADA, .label-CONCLUIDA
+{
+    color: #FFF;
+}
+.label-ATIVA
+{
+    background: #5AB45A;
+}
+
+.label-CONCLUIDA
+{
+    background: #2d6987;
+}
+
+.label-CANCELADA
+{
+    background: #953b39;
+}
+
+.label-CADASTRADA
+{
+    background: #999999 ;
+}
+/* CSS especifico para a lista de EDCs *EXPERIMENTAL* */
+td.descricao
+{
+    width: 50%;
+}
+
+.ul-striped > li:nth-child(odd)
+{
+    background-color: #f9f9f9;
+}
+
+.ul-hover > li:hover
+{
+    background-color: #f9f9f9;
+}
+.ul-table
+{
+    margin-bottom: 20px;
+    padding-right: 5px;
+}
+.ul-first
+{
+    margin-left: 10px;
+}
+.ul-table > li
+{
+    border-top: 1px solid #ddd;
+    padding: 8px 8px 8px 0;
+    list-style: none;
+}
+
+.ul-table a:hover
+{
+    text-decoration: none;
+}
+
+li div.divFirst
+{
+    height: 100%;
+}
+li div.divFirst span, li div.divFirst a
+{
+    vertical-align: middle;
+}
+
+li div.linha
+{
+    min-height: 40px;
+    background-image: url("imgs/grippy_large.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 8px;
+}
+
+li div.button-column
+{
+    text-align: right;
+}
+
+ul.child-1, ul.child-5
+{
+    background-color: #FCF8E3;
+}
+
+ul.child-2, ul.child-6
+{
+    background-color: #DFF0D8;
+}
+
+ul.child-3, ul.child-7
+{
+    background-color: #F2DEDE;
+}
+
+ul.child-4, ul.child-8
+{
+    background-color: #D9EDF7;
+}

@@ -1,0 +1,7 @@
+Subject: Registro desativado
+
+Olá {USERNAME},
+
+O seu registro em "{SITENAME}" foi desativado, devido a alteração de informações importantes em seu perfil. É necessário que o administrador ative sua conta para que você possa autenticar-se no fórum. Você será devidamente avisado quando tal ocorrer.
+
+{EMAIL_SIG}

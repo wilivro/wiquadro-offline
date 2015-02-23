@@ -1,0 +1,82 @@
+    .sb-menu { /* Apply to <ul> or <ol>. */
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.sb-menu li {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.1); /* Will lighten any background colour you set. */
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Will darken any background colour you set. */
+}
+
+.sb-menu > li:first-child {
+	border-top: none; /* Removes top border from first list item.. */
+}
+
+.sb-menu > li:last-child {
+	border-bottom: none; /* Removed bottom border from last list item. */
+}
+
+.sb-menu li div /*a.viewEdc*/ {
+	width: 100%; /* Makes links full width. */
+	display: inline-block;
+	padding: 1em; /* Creates an even padding the same size as your font. */
+	color: #f2f2f2;
+}
+.sb-menu li a, .sb-menu li a:hover
+{
+    text-decoration: none;
+    color: #f2f2f2;
+    height: 100%;
+}
+.sb-menu li div:hover {
+	background-color: #00a0d9 /*rgba(255, 255, 255, 0.05);*/ /* Will lighten any background colour you set. */
+}
+
+/* Borders */
+.sb-left .sb-menu li div {
+	border-left: 3px solid transparent;
+}
+
+.sb-left .sb-menu li div:hover {
+	border-left: 3px solid; /* Removes transparent colour, so border colour will be the same as link hover colour. */
+}
+
+.sb-right .sb-menu li div {
+	border-right: 3px solid transparent;
+}
+
+.sb-right .sb-menu li div:hover {
+	border-right: 3px solid; /* Removes transparent colour, so border colour will be the same as link hover colour. */
+}
+
+/* Submenus */
+.sb-submenu {
+	/*display: none;*/
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	background-color: rgba(255, 255, 255, 0.05); /* Submenu background colour. */
+}
+
+/* Caret */
+span.sb-caret {
+	width: 0;
+	height: 0;
+	display: inline-block;
+	margin: 0 5px;
+	border: 5px solid transparent;
+}
+
+span.sb-caret { /* Caret Down */
+	border-top: 5px solid;
+	border-bottom: 0px solid transparent;
+}
+
+.sb-submenu-active > span.sb-caret { /* Caret Up */
+	border-top: 0px solid transparent;
+	border-bottom: 5px solid;
+}

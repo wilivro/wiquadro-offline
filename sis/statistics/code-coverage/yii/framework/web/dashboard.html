@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/wiquadro/yii/framework/web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../css/nv.d3.css" rel="stylesheet">
+  <link href="../../../css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../../../js/html5shiv.min.js"></script>
+  <script src="../../../js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../../../index.html">/var/www/wiquadro</a></li>
+        <li><a href="../../index.html">yii</a></li>
+        <li><a href="../index.html">framework</a></li>
+        <li><a href="index.html">web</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="CWebApplication.php.html#58">CWebApplication</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1270">CCookieCollection</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#63">CHttpRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="auth/CBaseUserIdentity.php.html#33">CBaseUserIdentity</a></td><td class="text-right">36%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="CHttpRequest.php.html#63">CHttpRequest</a></td><td class="text-right">49062</td></tr>
+       <tr><td><a href="CWebApplication.php.html#58">CWebApplication</a></td><td class="text-right">4830</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1270">CCookieCollection</a></td><td class="text-right">380</td></tr>
+       <tr><td><a href="auth/CBaseUserIdentity.php.html#33">CBaseUserIdentity</a></td><td class="text-right">29</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="CWebApplication.php.html#183"><abbr title="CWebApplication::getAuthManager">getAuthManager</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#191"><abbr title="CWebApplication::getAssetManager">getAssetManager</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#149"><abbr title="CWebApplication::registerCoreComponents">registerCoreComponents</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#131"><abbr title="CWebApplication::processRequest">processRequest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1389"><abbr title="CCookieCollection::removeCookie">removeCookie</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#199"><abbr title="CWebApplication::getSession">getSession</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#207"><abbr title="CWebApplication::getUser">getUser</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#246"><abbr title="CWebApplication::getThemeManager">getThemeManager</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#238"><abbr title="CWebApplication::getWidgetFactory">getWidgetFactory</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#228"><abbr title="CWebApplication::getClientScript">getClientScript</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#219"><abbr title="CWebApplication::getViewRenderer">getViewRenderer</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1374"><abbr title="CCookieCollection::addCookie">addCookie</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1356"><abbr title="CCookieCollection::remove">remove</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1176"><abbr title="CHttpRequest::getCsrfToken">getCsrfToken</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1136"><abbr title="CHttpRequest::xSendFile">xSendFile</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#995"><abbr title="CHttpRequest::sendFile">sendFile</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#982"><abbr title="CHttpRequest::getPreferredLanguage">getPreferredLanguage</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1199"><abbr title="CHttpRequest::createCsrfCookie">createCsrfCookie</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1218"><abbr title="CHttpRequest::validateCsrfToken">validateCsrfToken</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1325"><abbr title="CCookieCollection::add">add</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1297"><abbr title="CCookieCollection::getCookies">getCookies</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1289"><abbr title="CCookieCollection::getRequest">getRequest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1279"><abbr title="CCookieCollection::__construct">__construct</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#254"><abbr title="CWebApplication::getTheme">getTheme</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#264"><abbr title="CWebApplication::setTheme">setTheme</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#523"><abbr title="CWebApplication::findModule">findModule</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#514"><abbr title="CWebApplication::afterControllerAction">afterControllerAction</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#501"><abbr title="CWebApplication::beforeControllerAction">beforeControllerAction</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#485"><abbr title="CWebApplication::setLayoutPath">setLayoutPath</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#541"><abbr title="CWebApplication::init">init</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="auth/CBaseUserIdentity.php.html#57"><abbr title="CBaseUserIdentity::getId">getId</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="auth/CBaseUserIdentity.php.html#127"><abbr title="CBaseUserIdentity::clearState">clearState</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="auth/CBaseUserIdentity.php.html#97"><abbr title="CBaseUserIdentity::getIsAuthenticated">getIsAuthenticated</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="auth/CBaseUserIdentity.php.html#87"><abbr title="CBaseUserIdentity::setPersistentStates">setPersistentStates</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="auth/CBaseUserIdentity.php.html#67"><abbr title="CBaseUserIdentity::getName">getName</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#473"><abbr title="CWebApplication::getLayoutPath">getLayoutPath</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#463"><abbr title="CWebApplication::setSystemViewPath">setSystemViewPath</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#391"><abbr title="CWebApplication::getController">getController</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#375"><abbr title="CWebApplication::parseActionParams">parseActionParams</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#310"><abbr title="CWebApplication::createController">createController</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#274"><abbr title="CWebApplication::runController">runController</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#399"><abbr title="CWebApplication::setController">setController</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#407"><abbr title="CWebApplication::getControllerPath">getControllerPath</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#451"><abbr title="CWebApplication::getSystemViewPath">getSystemViewPath</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#441"><abbr title="CWebApplication::setViewPath">setViewPath</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#429"><abbr title="CWebApplication::getViewPath">getViewPath</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CWebApplication.php.html#419"><abbr title="CWebApplication::setControllerPath">setControllerPath</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#950"><abbr title="CHttpRequest::getPreferredLanguages">getPreferredLanguages</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#938"><abbr title="CHttpRequest::getPreferredAcceptType">getPreferredAcceptType</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#412"><abbr title="CHttpRequest::setScriptUrl">setScriptUrl</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#427"><abbr title="CHttpRequest::getPathInfo">getPathInfo</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#385"><abbr title="CHttpRequest::getScriptUrl">getScriptUrl</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#374"><abbr title="CHttpRequest::setBaseUrl">setBaseUrl</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#361"><abbr title="CHttpRequest::getBaseUrl">getBaseUrl</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#462"><abbr title="CHttpRequest::decodePathInfo">decodePathInfo</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#495"><abbr title="CHttpRequest::getRequestUri">getRequestUri</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#563"><abbr title="CHttpRequest::getIsPostRequest">getIsPostRequest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#551"><abbr title="CHttpRequest::getRequestType">getRequestType</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#538"><abbr title="CHttpRequest::getIsSecureConnection">getIsSecureConnection</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#529"><abbr title="CHttpRequest::getQueryString">getQueryString</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#348"><abbr title="CHttpRequest::setHostInfo">setHostInfo</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#305"><abbr title="CHttpRequest::getHostInfo">getHostInfo</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#183"><abbr title="CHttpRequest::getQuery">getQuery</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#169"><abbr title="CHttpRequest::getParam">getParam</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#145"><abbr title="CHttpRequest::stripSlashes">stripSlashes</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#119"><abbr title="CHttpRequest::normalizeRequest">normalizeRequest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#197"><abbr title="CHttpRequest::getPost">getPost</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#213"><abbr title="CHttpRequest::getDelete">getDelete</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#291"><abbr title="CHttpRequest::getUrl">getUrl</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#278"><abbr title="CHttpRequest::getRawBody">getRawBody</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#258"><abbr title="CHttpRequest::getRestParams">getRestParams</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#238"><abbr title="CHttpRequest::getPut">getPut</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#573"><abbr title="CHttpRequest::getIsDeleteRequest">getIsDeleteRequest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#583"><abbr title="CHttpRequest::getIsDeleteViaPostRequest">getIsDeleteViaPostRequest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#756"><abbr title="CHttpRequest::getSecurePort">getSecurePort</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#739"><abbr title="CHttpRequest::setPort">setPort</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#725"><abbr title="CHttpRequest::getPort">getPort</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#709"><abbr title="CHttpRequest::getAcceptTypes">getAcceptTypes</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#770"><abbr title="CHttpRequest::setSecurePort">setSecurePort</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#783"><abbr title="CHttpRequest::getCookies">getCookies</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#922"><abbr title="CHttpRequest::getPreferredAcceptTypes">getPreferredAcceptTypes</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#895"><abbr title="CHttpRequest::compareAcceptTypes">compareAcceptTypes</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#833"><abbr title="CHttpRequest::parseAcceptHeader">parseAcceptHeader</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#799"><abbr title="CHttpRequest::redirect">redirect</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#700"><abbr title="CHttpRequest::getBrowser">getBrowser</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#685"><abbr title="CHttpRequest::getScriptFile">getScriptFile</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#622"><abbr title="CHttpRequest::getIsFlashRequest">getIsFlashRequest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#612"><abbr title="CHttpRequest::getIsAjaxRequest">getIsAjaxRequest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#603"><abbr title="CHttpRequest::getIsPutViaPostRequest">getIsPutViaPostRequest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#593"><abbr title="CHttpRequest::getIsPutRequest">getIsPutRequest</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#631"><abbr title="CHttpRequest::getServerName">getServerName</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#640"><abbr title="CHttpRequest::getServerPort">getServerPort</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#676"><abbr title="CHttpRequest::getUserHost">getUserHost</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#667"><abbr title="CHttpRequest::getUserHostAddress">getUserHostAddress</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#658"><abbr title="CHttpRequest::getUserAgent">getUserAgent</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#649"><abbr title="CHttpRequest::getUrlReferrer">getUrlReferrer</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#108"><abbr title="CHttpRequest::init">init</a></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="CHttpRequest.php.html#305"><abbr title="CHttpRequest::getHostInfo">getHostInfo</abbr></a></td><td class="text-right">380</td></tr>
+       <tr><td><a href="CWebApplication.php.html#310"><abbr title="CWebApplication::createController">createController</abbr></a></td><td class="text-right">272</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#995"><abbr title="CHttpRequest::sendFile">sendFile</abbr></a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#833"><abbr title="CHttpRequest::parseAcceptHeader">parseAcceptHeader</abbr></a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1136"><abbr title="CHttpRequest::xSendFile">xSendFile</abbr></a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1218"><abbr title="CHttpRequest::validateCsrfToken">validateCsrfToken</abbr></a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#385"><abbr title="CHttpRequest::getScriptUrl">getScriptUrl</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#895"><abbr title="CHttpRequest::compareAcceptTypes">compareAcceptTypes</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#495"><abbr title="CHttpRequest::getRequestUri">getRequestUri</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#950"><abbr title="CHttpRequest::getPreferredLanguages">getPreferredLanguages</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#119"><abbr title="CHttpRequest::normalizeRequest">normalizeRequest</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#427"><abbr title="CHttpRequest::getPathInfo">getPathInfo</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="CWebApplication.php.html#523"><abbr title="CWebApplication::findModule">findModule</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1297"><abbr title="CCookieCollection::getCookies">getCookies</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#538"><abbr title="CHttpRequest::getIsSecureConnection">getIsSecureConnection</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#799"><abbr title="CHttpRequest::redirect">redirect</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#725"><abbr title="CHttpRequest::getPort">getPort</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="CWebApplication.php.html#131"><abbr title="CWebApplication::processRequest">processRequest</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1176"><abbr title="CHttpRequest::getCsrfToken">getCsrfToken</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#756"><abbr title="CHttpRequest::getSecurePort">getSecurePort</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#238"><abbr title="CHttpRequest::getPut">getPut</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#213"><abbr title="CHttpRequest::getDelete">getDelete</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1374"><abbr title="CCookieCollection::addCookie">addCookie</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1356"><abbr title="CCookieCollection::remove">remove</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1325"><abbr title="CCookieCollection::add">add</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CWebApplication.php.html#274"><abbr title="CWebApplication::runController">runController</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1199"><abbr title="CHttpRequest::createCsrfCookie">createCsrfCookie</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#169"><abbr title="CHttpRequest::getParam">getParam</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CWebApplication.php.html#485"><abbr title="CWebApplication::setLayoutPath">setLayoutPath</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#145"><abbr title="CHttpRequest::stripSlashes">stripSlashes</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CWebApplication.php.html#463"><abbr title="CWebApplication::setSystemViewPath">setSystemViewPath</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CWebApplication.php.html#441"><abbr title="CWebApplication::setViewPath">setViewPath</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CWebApplication.php.html#375"><abbr title="CWebApplication::parseActionParams">parseActionParams</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CWebApplication.php.html#419"><abbr title="CWebApplication::setControllerPath">setControllerPath</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#361"><abbr title="CHttpRequest::getBaseUrl">getBaseUrl</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#258"><abbr title="CHttpRequest::getRestParams">getRestParams</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#573"><abbr title="CHttpRequest::getIsDeleteRequest">getIsDeleteRequest</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#622"><abbr title="CHttpRequest::getIsFlashRequest">getIsFlashRequest</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#551"><abbr title="CHttpRequest::getRequestType">getRequestType</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#593"><abbr title="CHttpRequest::getIsPutRequest">getIsPutRequest</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CWebApplication.php.html#407"><abbr title="CWebApplication::getControllerPath">getControllerPath</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#658"><abbr title="CHttpRequest::getUserAgent">getUserAgent</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#667"><abbr title="CHttpRequest::getUserHostAddress">getUserHostAddress</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#676"><abbr title="CHttpRequest::getUserHost">getUserHost</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#649"><abbr title="CHttpRequest::getUrlReferrer">getUrlReferrer</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CWebApplication.php.html#429"><abbr title="CWebApplication::getViewPath">getViewPath</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#612"><abbr title="CHttpRequest::getIsAjaxRequest">getIsAjaxRequest</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CWebApplication.php.html#451"><abbr title="CWebApplication::getSystemViewPath">getSystemViewPath</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#603"><abbr title="CHttpRequest::getIsPutViaPostRequest">getIsPutViaPostRequest</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CWebApplication.php.html#254"><abbr title="CWebApplication::getTheme">getTheme</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CWebApplication.php.html#473"><abbr title="CWebApplication::getLayoutPath">getLayoutPath</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#1389"><abbr title="CCookieCollection::removeCookie">removeCookie</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#982"><abbr title="CHttpRequest::getPreferredLanguage">getPreferredLanguage</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#278"><abbr title="CHttpRequest::getRawBody">getRawBody</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#529"><abbr title="CHttpRequest::getQueryString">getQueryString</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#938"><abbr title="CHttpRequest::getPreferredAcceptType">getPreferredAcceptType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#922"><abbr title="CHttpRequest::getPreferredAcceptTypes">getPreferredAcceptTypes</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#583"><abbr title="CHttpRequest::getIsDeleteViaPostRequest">getIsDeleteViaPostRequest</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#783"><abbr title="CHttpRequest::getCookies">getCookies</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#685"><abbr title="CHttpRequest::getScriptFile">getScriptFile</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#462"><abbr title="CHttpRequest::decodePathInfo">decodePathInfo</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#709"><abbr title="CHttpRequest::getAcceptTypes">getAcceptTypes</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#197"><abbr title="CHttpRequest::getPost">getPost</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#563"><abbr title="CHttpRequest::getIsPostRequest">getIsPostRequest</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CHttpRequest.php.html#183"><abbr title="CHttpRequest::getQuery">getQuery</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 2.0.15</a> using <a href="http://php.net/" target="_top">PHP 5.5.12-2ubuntu4.2</a> and <a href="http://phpunit.de/">PHPUnit 4.5.0</a> at Mon Feb 23 11:06:36 BRT 2015.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+  <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../../../js/holder.js" type="text/javascript"></script>
+  <script src="../../../js/d3.min.js" type="text/javascript"></script>
+  <script src="../../../js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([3,0,0,0,1,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([97,0,0,0,0,0,0,0,0,0,0,3], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,221,"<a href=\"CHttpRequest.php.html#63\">CHttpRequest<\/a>"],[0,19,"<a href=\"CHttpRequest.php.html#1270\">CCookieCollection<\/a>"],[0,69,"<a href=\"CWebApplication.php.html#58\">CWebApplication<\/a>"],[36.363636363636,9,"<a href=\"auth\/CBaseUserIdentity.php.html#33\">CBaseUserIdentity<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"CHttpRequest.php.html#108\">CHttpRequest::init<\/a>"],[0,8,"<a href=\"CHttpRequest.php.html#119\">CHttpRequest::normalizeRequest<\/a>"],[0,3,"<a href=\"CHttpRequest.php.html#145\">CHttpRequest::stripSlashes<\/a>"],[0,3,"<a href=\"CHttpRequest.php.html#169\">CHttpRequest::getParam<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#183\">CHttpRequest::getQuery<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#197\">CHttpRequest::getPost<\/a>"],[0,4,"<a href=\"CHttpRequest.php.html#213\">CHttpRequest::getDelete<\/a>"],[0,4,"<a href=\"CHttpRequest.php.html#238\">CHttpRequest::getPut<\/a>"],[0,3,"<a href=\"CHttpRequest.php.html#258\">CHttpRequest::getRestParams<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#278\">CHttpRequest::getRawBody<\/a>"],[0,1,"<a href=\"CHttpRequest.php.html#291\">CHttpRequest::getUrl<\/a>"],[0,19,"<a href=\"CHttpRequest.php.html#305\">CHttpRequest::getHostInfo<\/a>"],[0,1,"<a href=\"CHttpRequest.php.html#348\">CHttpRequest::setHostInfo<\/a>"],[0,3,"<a href=\"CHttpRequest.php.html#361\">CHttpRequest::getBaseUrl<\/a>"],[0,1,"<a href=\"CHttpRequest.php.html#374\">CHttpRequest::setBaseUrl<\/a>"],[0,9,"<a href=\"CHttpRequest.php.html#385\">CHttpRequest::getScriptUrl<\/a>"],[0,1,"<a href=\"CHttpRequest.php.html#412\">CHttpRequest::setScriptUrl<\/a>"],[0,7,"<a href=\"CHttpRequest.php.html#427\">CHttpRequest::getPathInfo<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#462\">CHttpRequest::decodePathInfo<\/a>"],[0,8,"<a href=\"CHttpRequest.php.html#495\">CHttpRequest::getRequestUri<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#529\">CHttpRequest::getQueryString<\/a>"],[0,5,"<a href=\"CHttpRequest.php.html#538\">CHttpRequest::getIsSecureConnection<\/a>"],[0,3,"<a href=\"CHttpRequest.php.html#551\">CHttpRequest::getRequestType<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#563\">CHttpRequest::getIsPostRequest<\/a>"],[0,3,"<a href=\"CHttpRequest.php.html#573\">CHttpRequest::getIsDeleteRequest<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#583\">CHttpRequest::getIsDeleteViaPostRequest<\/a>"],[0,3,"<a href=\"CHttpRequest.php.html#593\">CHttpRequest::getIsPutRequest<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#603\">CHttpRequest::getIsPutViaPostRequest<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#612\">CHttpRequest::getIsAjaxRequest<\/a>"],[0,3,"<a href=\"CHttpRequest.php.html#622\">CHttpRequest::getIsFlashRequest<\/a>"],[0,1,"<a href=\"CHttpRequest.php.html#631\">CHttpRequest::getServerName<\/a>"],[0,1,"<a href=\"CHttpRequest.php.html#640\">CHttpRequest::getServerPort<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#649\">CHttpRequest::getUrlReferrer<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#658\">CHttpRequest::getUserAgent<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#667\">CHttpRequest::getUserHostAddress<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#676\">CHttpRequest::getUserHost<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#685\">CHttpRequest::getScriptFile<\/a>"],[0,1,"<a href=\"CHttpRequest.php.html#700\">CHttpRequest::getBrowser<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#709\">CHttpRequest::getAcceptTypes<\/a>"],[0,4,"<a href=\"CHttpRequest.php.html#725\">CHttpRequest::getPort<\/a>"],[0,1,"<a href=\"CHttpRequest.php.html#739\">CHttpRequest::setPort<\/a>"],[0,4,"<a href=\"CHttpRequest.php.html#756\">CHttpRequest::getSecurePort<\/a>"],[0,1,"<a href=\"CHttpRequest.php.html#770\">CHttpRequest::setSecurePort<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#783\">CHttpRequest::getCookies<\/a>"],[0,4,"<a href=\"CHttpRequest.php.html#799\">CHttpRequest::redirect<\/a>"],[0,12,"<a href=\"CHttpRequest.php.html#833\">CHttpRequest::parseAcceptHeader<\/a>"],[0,9,"<a href=\"CHttpRequest.php.html#895\">CHttpRequest::compareAcceptTypes<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#922\">CHttpRequest::getPreferredAcceptTypes<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#938\">CHttpRequest::getPreferredAcceptType<\/a>"],[0,8,"<a href=\"CHttpRequest.php.html#950\">CHttpRequest::getPreferredLanguages<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#982\">CHttpRequest::getPreferredLanguage<\/a>"],[0,15,"<a href=\"CHttpRequest.php.html#995\">CHttpRequest::sendFile<\/a>"],[0,12,"<a href=\"CHttpRequest.php.html#1136\">CHttpRequest::xSendFile<\/a>"],[0,4,"<a href=\"CHttpRequest.php.html#1176\">CHttpRequest::getCsrfToken<\/a>"],[0,3,"<a href=\"CHttpRequest.php.html#1199\">CHttpRequest::createCsrfCookie<\/a>"],[0,10,"<a href=\"CHttpRequest.php.html#1218\">CHttpRequest::validateCsrfToken<\/a>"],[0,1,"<a href=\"CHttpRequest.php.html#1279\">CCookieCollection::__construct<\/a>"],[0,1,"<a href=\"CHttpRequest.php.html#1289\">CCookieCollection::getRequest<\/a>"],[0,6,"<a href=\"CHttpRequest.php.html#1297\">CCookieCollection::getCookies<\/a>"],[0,3,"<a href=\"CHttpRequest.php.html#1325\">CCookieCollection::add<\/a>"],[0,3,"<a href=\"CHttpRequest.php.html#1356\">CCookieCollection::remove<\/a>"],[0,3,"<a href=\"CHttpRequest.php.html#1374\">CCookieCollection::addCookie<\/a>"],[0,2,"<a href=\"CHttpRequest.php.html#1389\">CCookieCollection::removeCookie<\/a>"],[0,4,"<a href=\"CWebApplication.php.html#131\">CWebApplication::processRequest<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#149\">CWebApplication::registerCoreComponents<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#183\">CWebApplication::getAuthManager<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#191\">CWebApplication::getAssetManager<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#199\">CWebApplication::getSession<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#207\">CWebApplication::getUser<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#219\">CWebApplication::getViewRenderer<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#228\">CWebApplication::getClientScript<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#238\">CWebApplication::getWidgetFactory<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#246\">CWebApplication::getThemeManager<\/a>"],[0,2,"<a href=\"CWebApplication.php.html#254\">CWebApplication::getTheme<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#264\">CWebApplication::setTheme<\/a>"],[0,3,"<a href=\"CWebApplication.php.html#274\">CWebApplication::runController<\/a>"],[0,16,"<a href=\"CWebApplication.php.html#310\">CWebApplication::createController<\/a>"],[0,3,"<a href=\"CWebApplication.php.html#375\">CWebApplication::parseActionParams<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#391\">CWebApplication::getController<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#399\">CWebApplication::setController<\/a>"],[0,2,"<a href=\"CWebApplication.php.html#407\">CWebApplication::getControllerPath<\/a>"],[0,3,"<a href=\"CWebApplication.php.html#419\">CWebApplication::setControllerPath<\/a>"],[0,2,"<a href=\"CWebApplication.php.html#429\">CWebApplication::getViewPath<\/a>"],[0,3,"<a href=\"CWebApplication.php.html#441\">CWebApplication::setViewPath<\/a>"],[0,2,"<a href=\"CWebApplication.php.html#451\">CWebApplication::getSystemViewPath<\/a>"],[0,3,"<a href=\"CWebApplication.php.html#463\">CWebApplication::setSystemViewPath<\/a>"],[0,2,"<a href=\"CWebApplication.php.html#473\">CWebApplication::getLayoutPath<\/a>"],[0,3,"<a href=\"CWebApplication.php.html#485\">CWebApplication::setLayoutPath<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#501\">CWebApplication::beforeControllerAction<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#514\">CWebApplication::afterControllerAction<\/a>"],[0,6,"<a href=\"CWebApplication.php.html#523\">CWebApplication::findModule<\/a>"],[0,1,"<a href=\"CWebApplication.php.html#541\">CWebApplication::init<\/a>"],[0,1,"<a href=\"auth\/CBaseUserIdentity.php.html#57\">CBaseUserIdentity::getId<\/a>"],[0,1,"<a href=\"auth\/CBaseUserIdentity.php.html#67\">CBaseUserIdentity::getName<\/a>"],[100,1,"<a href=\"auth\/CBaseUserIdentity.php.html#77\">CBaseUserIdentity::getPersistentStates<\/a>"],[0,1,"<a href=\"auth\/CBaseUserIdentity.php.html#87\">CBaseUserIdentity::setPersistentStates<\/a>"],[0,1,"<a href=\"auth\/CBaseUserIdentity.php.html#97\">CBaseUserIdentity::getIsAuthenticated<\/a>"],[100,2,"<a href=\"auth\/CBaseUserIdentity.php.html#108\">CBaseUserIdentity::getState<\/a>"],[100,1,"<a href=\"auth\/CBaseUserIdentity.php.html#118\">CBaseUserIdentity::setState<\/a>"],[0,1,"<a href=\"auth\/CBaseUserIdentity.php.html#127\">CBaseUserIdentity::clearState<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

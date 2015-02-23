@@ -1,0 +1,80 @@
+div#modalConfigEdc.modal .modal-body
+{
+    height: 450px;
+    max-height: 450px;
+}
+
+div#modalConfigEdc.modal .tab-content
+{
+    min-height: 340px;
+}
+
+ul.dependencias
+{
+    min-height: 415px;
+    max-height: 415px;
+    overflow: auto;
+    margin-left: 0px;
+}
+
+ul.allEdcs
+{
+    overflow: auto;
+    margin-left: 0px;
+    min-height: 415px;
+    max-height: 415px;
+}
+
+ul.equivalentes
+{
+    min-height: 415px;
+    max-height: 415px;
+    overflow: auto;
+    margin-left: 0px;
+    border: solid 1px #FCF8E3;
+}
+ul.ul-table > li.liAll
+{
+    padding: 3px 8px 3px 0;
+    line-height: 30px;
+    /*cursor: all-scroll;*/
+}
+
+ul.ul-table > li.liAll > div.linha
+{
+    min-height: 30px;
+    background-image: none;
+}
+
+div.h4Especial h4
+{
+    margin-top: 0px;
+}
+
+div.h4Especial ul
+{
+    margin-bottom: 0px;
+}
+
+div.edcs
+{
+    overflow: auto;
+    margin-left: 0px;
+    min-height: 400px;
+    max-height: 400px;
+}
+
+div.sortable > div.element
+{
+    margin: 5px 10px 5px 10px;
+    background: #bde4f4;
+    padding: 7px;
+    border: 1px solid #2BADE5;
+    cursor: move;
+}
+
+div.element > div.element
+{
+    border: 1px solid #CCC;
+    background: #FFF;
+}

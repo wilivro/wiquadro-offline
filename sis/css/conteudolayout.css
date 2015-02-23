@@ -1,0 +1,26 @@
+.navbar-fixed-top{position: fixed !important;}
+body{padding-bottom: 40px;}
+div.student-info hr{ margin: 0; padding: 0;}
+div.student-info p{padding: 5px 0 0 0;}
+div.nav-content select{font-size: 11px; padding: 0; margin: 0;}
+ul.yamm-content{width: 300px; height: 244px; overflow: auto; list-style: none outside none; margin-left: 0; display: block;}
+ul.yamm-content li{float: left; margin: 0;}
+ul.yamm-content a{border-bottom: 1px solid #F4F4F4; text-align: center; font-size: 11px; margin-left: 0;}
+ul.yamm-content a:hover a.active{background: #C9E0ED;}
+a.disabled{color: #CCC; background: #F4F4F4;}
+
+#content{width: 100%; border: 0;}
+#turmaChat{width: 0; height: 500px;}
+#turmaChat iframe{border: 0;}
+.modal-body{min-height: 400px; background-color: white;}
+#turmaForum .modal-body{height: 100%}
+.navbar-inner {background-image:none !important; background-color: #3c4e5c !important;/*margin-top:border: 0px !important;*/}
+.student-info {color: #eee;margin-top: 10px;}
+.pull-right {padding-top: 15px;}
+.btn {background-image: none; border-radius: 0px; border: none; box-shadow: none;}
+.btn-large {border-radius:0px !important; height: 50px; padding: 0px 19px;}
+.btn-primary {background-color: #00a0d9;}
+.btn-primary:hover {background-color: #2f96b4;}
+.navbar-inner {height: 90px;}
+.navbar  {margin: 0 14px 0 0;}
+.btn-info {background-color: #00a0d9;}

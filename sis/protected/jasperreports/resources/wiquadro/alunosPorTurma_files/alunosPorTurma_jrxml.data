@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="alunosPorTurma" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6cc6f756-9201-408a-b7b4-5a9585724c10">
+	<property name="ireport.zoom" value="1.8627639691774651"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/wiquadro/alunosPorTurma"/>
+	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver/services/repository"/>
+	<parameter name="IdEscola" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     a.`Nome` AS Aluno,
+     t.`Nome` AS Turma,
+     a.`Email`,
+     e.Nome AS Escola,
+     p.Nome AS Projeto,
+     c.Nome AS Cliente
+FROM
+     `alunoturma` at INNER JOIN `aluno` a ON at.`IdAluno` = a.`Id`
+     INNER JOIN `turma` t ON at.`IdTurma` = t.`Id`
+     INNER JOIN escola e ON e.Id = t.IdEscola
+     INNER JOIN projeto p ON p.Id = t.IdProjeto
+     INNER JOIN cliente c ON c.Id = p.IdCliente
+WHERE
+     t.IdEscola = $P{IdEscola}
+ORDER BY
+     t.Id ASC,
+     a.Nome ASC]]>
+	</queryString>
+	<field name="Aluno" class="java.lang.String"/>
+	<field name="Turma" class="java.lang.String"/>
+	<field name="Email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Escola" class="java.lang.String"/>
+	<field name="Projeto" class="java.lang.String"/>
+	<field name="Cliente" class="java.lang.String"/>
+	<group name="Turma">
+		<groupExpression><![CDATA[$F{Turma}]]></groupExpression>
+		<groupHeader>
+			<band height="23">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="22" forecolor="#666666" backcolor="#E6E6E6" uuid="27c4c4ce-c141-491c-ac18-8521bac6c904"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TURMA]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="22" forecolor="#000000" backcolor="#E6E6E6" uuid="3899c5a6-ce0f-42e5-a447-6da265d72f59"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Turma}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="22" width="595" height="1" forecolor="#666666" uuid="971a0d27-3768-4485-aa5a-a8f2f5613179"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#FFFFFF" uuid="55c2231b-3289-485f-bc86-7d2de218b5a2"/>
+				<staticText>
+					<reportElement x="20" y="62" width="555" height="19" forecolor="#000000" uuid="c335f2bf-1b6a-4bdd-94a5-02f19cde7c02"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ALUNOS POR TURMA]]></text>
+				</staticText>
+				<image>
+					<reportElement x="20" y="20" width="42" height="42" uuid="b2d0f775-a039-41b8-ba32-de8c643b3b2a"/>
+					<imageExpression><![CDATA["repo:logo_wi_contato.jpg"]]></imageExpression>
+				</image>
+				<textField>
+					<reportElement x="69" y="34" width="297" height="12" uuid="1652c023-c9c2-4b2b-bb7d-829c3dfed69f"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Projeto}.toUpperCase()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="69" y="47" width="297" height="12" uuid="31daf369-0119-402a-ba1f-d2b9ccf0e286"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Escola}.toUpperCase()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="69" y="21" width="297" height="12" uuid="d776f1c9-d867-4152-8001-d1df6d6de669"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Cliente}.toUpperCase()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="5aff4fcb-e1bc-406b-9052-755b2f9aacb6"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="277" height="19" forecolor="#000000" backcolor="#E6E6E6" uuid="1f5a976c-93ba-4c1e-9a1a-6985b9c18ec9"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALUNO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="277" y="0" width="278" height="19" forecolor="#000000" backcolor="#E6E6E6" uuid="bca469cc-7c4c-43e6-a4d1-ef543f9645ef"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-MAIL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="ac1f0ebc-a4b6-440b-9841-1a48a369440b"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="277" height="20" uuid="7f338cad-a03b-4d02-9c85-b64413a453a7"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Aluno}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="277" y="0" width="277" height="20" uuid="eb9c3519-189e-411a-b4e0-2a651663a5c9"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Email}.toLowerCase()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="5" width="515" height="13" backcolor="#E6E6E6" uuid="9f2b5d31-252c-466f-9088-f246f9f12751"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pág. "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="5" width="40" height="13" backcolor="#E6E6E6" uuid="a9c6793e-a96a-4a51-af74-f446e096ba6c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="5" width="100" height="13" uuid="5a4655bf-23b9-488a-8c4d-82fbdfd5355a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="174" y="5" width="209" height="13" uuid="5ea943b1-3068-4db4-a04b-a21fa5bfd74b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[WiLivro - Soluções Tecnologicas Educacionais]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

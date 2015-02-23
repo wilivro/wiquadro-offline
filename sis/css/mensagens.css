@@ -1,0 +1,77 @@
+.waitAjax{-webkit-animation: waitAjax 1s infinite; /* Chrome, Safari, Opera */ animation: waitAjax 1s infinite;}
+    /* Chrome, Safari, Opera */
+    @-webkit-keyframes waitAjax {from {transform:rotate(0deg);} to {transform:rotate(360deg);}}
+    /* Standard syntax */
+    @keyframes waitAjax {from {transform:rotate(0deg);} to {transform:rotate(360deg);}}
+    .trim
+    {
+      /*color: #FFF;*/
+      margin-top: 5px;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-left: 10px;
+    }
+    .permissao
+    {
+      color: #999 !important;
+    }
+    #mensagens a {
+      color: #2E3C4A;
+      text-decoration: none;
+    }
+    #mensagens .panel-heading .message-author:hover
+    {
+      border: 1px solid #13A4E2;
+      background: #CBE5EF;
+    }
+    
+    #novaMensagem .dropdown-menu-msgTo
+    {
+      width:400px;
+    }
+    .list-users
+    {
+      border:1px solid #CCC;
+      border-radius: 5px;
+      display: flex;
+      cursor: text;
+    }
+    .list-users-container
+    {
+      display: table-cell;
+    }
+
+    .list-users > div > .w-user-msg
+    {
+      position: relative;
+      display: inline-block;
+      border: 1px solid #13A4E2;
+      background: #CBE5EF;
+      color:#999;
+      width:153px;
+      margin: 1px 1px 0 1px;
+      padding: 1px 5px;
+      max-height: 25px;
+      font-size:15px !important;
+    }
+    .list-users > div > .w-user-msg > i
+    {
+      position: absolute;
+      right: 1px;
+
+    }
+    input#msgTo
+    {
+      display: inline-block;
+      border:0;
+      width: 153px;
+      padding:1px 5px !important;
+      box-shadow: none;
+    }
+    input#msgTo:focus
+    {
+      outline: 0 !important;
+       box-shadow: none;
+    }

@@ -1,0 +1,3 @@
+ul#UlDescritores, ul#edcsList{list-style: none; padding: 0;}
+ul#UlDescritores li{margin-bottom: 25px; border-bottom: 1px solid #000;}
+ul#edcsList li{margin-bottom: 10px;}

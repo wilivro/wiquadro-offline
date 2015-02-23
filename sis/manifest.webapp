@@ -1,0 +1,20 @@
+{
+    "name": "WiQuadro",
+    "version": "1.0.1", 
+    "description": "Plataforma de ensino",
+    "launch_path": "/",
+    "type": "web",
+    "installs_allowed_from": ["*"],
+    "developer":
+    {
+        "name": "Wilivro",
+        "url": "http://wilivro.com.br"
+    },
+    "icons":
+    {
+        "128": "/icon_128.png",
+        "60": "/icon_60.png"
+    },
+    "default_locale": "br",
+    "fullscreen": "true"
+}

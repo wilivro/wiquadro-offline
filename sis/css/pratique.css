@@ -1,0 +1,69 @@
+.edc-row
+    {
+        font-family: roboto !important;
+        font-weight: lighter;
+        height: 48px;
+        line-height: 48px;
+        background: #DEDEDE;
+        color: #2e3c4a;
+        
+    }
+    
+    .edc-text-container:hover .edc-row
+    {
+        background: #13a4e2;
+        color:#FFF !important;
+        cursor:pointer;
+    }
+    .edc-text-container:hover .getChildrenIcon
+    {
+        background: #13a4e2;
+        color:#FFF !important;
+        cursor:pointer;
+    }
+     .edc-text-container:hover .getChildrenIcon a
+    {
+        color:#FFF !important;
+    }
+    .edc-text-container:hover .edc-row::after
+    {
+        border-color:transparent #13a4e2;
+    }
+    .edc-row:hover a
+    {
+        color:#FFF !important;
+    }
+     .edc-row-container
+     {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .edc-row::after 
+    {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 9px 0 9px 8px;
+    border-color: transparent #DEDEDE;
+    display: block;
+    width: 0;
+    z-index: 1;
+    right: -8px;
+    margin-top: -32px;
+    }
+    .edc-row a
+    {
+        color: #2e3c4a !important;
+        text-decoration: none;
+    }
+    .radioProgress
+    {
+        display:inline-block;
+    }
+    .getChildrenIcon
+    {
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        background: #DEDEDE;
+    }

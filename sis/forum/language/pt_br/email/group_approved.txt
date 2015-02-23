@@ -1,0 +1,10 @@
+Subject: A sua inscrição foi aceita
+
+Parabéns,
+
+A sua inscrição para entrar no grupo "{GROUP_NAME}" em "{SITENAME}" foi aceita.
+Você pode ver as informações de seu grupo aqui:
+
+{U_GROUP}
+
+{EMAIL_SIG}

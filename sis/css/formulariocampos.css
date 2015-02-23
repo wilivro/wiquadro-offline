@@ -1,0 +1,70 @@
+ul#campos
+{
+    margin-left: 0;
+}
+ul#campos > li
+{
+    min-height: 50px;
+    background: green;
+    margin-bottom: 5px;
+    list-style: none;
+    margin: 5px 10px 5px 10px;
+    background: #FCF8E3;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #CCC;
+    cursor: move;        
+}
+
+ul#campos label
+{
+    line-height: 38px;
+    text-align: right;
+}
+
+a.deleteOpcao, a.addOpcao
+{
+    margin-left: 10px;
+    display: inline-block;
+    min-width: 15px;
+    text-align: center;
+    padding: 2px;
+}
+
+a.deleteOpcao:hover, a.addOpcao:hover
+{
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #CCC;
+}
+
+ul.opcoes
+{
+    margin-left: 0;
+}
+
+ul.opcoes > li.opcao
+{
+    border: none;
+    list-style: none;
+}
+
+div.modelText, div.modelTextarea
+{
+    height: 30px;
+    width: 220px;
+    background: #ebebe4;
+    border: 1px dashed;
+}
+
+div.modelTextarea
+{
+    height: 60px;
+    width: 300px;
+}
+
+a.deleteCampo
+{
+    float: right;
+    cursor: pointer;
+}
