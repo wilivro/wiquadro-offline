@@ -121,7 +121,8 @@ $(document).ready(function()
                             window.WiAlert('error', r.mensagem);
                         else
                         {
-                            window.WiAlert('error', r.mensagem);
+                            if(r.mensagem)
+                                window.WiAlert('warning', r.mensagem);
                             $labelChecked.css('color', '#A94442');
                             resultado.fadeIn(200);
 

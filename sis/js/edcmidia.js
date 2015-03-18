@@ -119,6 +119,10 @@ $(document).ready(function(){
             refreshGridView = function(){
                 $.fn.yiiGridView.update('edcMidiaGridView');
                 $.fn.yiiGridView.update('edcMidiaInativoGridView');
+                //$('#edcMidiaGridView').trigger("update");
+                //$('#edcMidiaInativoGridView').trigger("update");
+                if($(".w-help-popover").hasClass("in"))
+                    $(".w-help-popover").removeClass('in').addClass("out");
             },
             showErrorMessages = function(validationErrors){
                 var errorMessage = "<ul>";
@@ -396,8 +400,9 @@ $(document).ready(function(){
             alterRequerInteracao = function(e)
             {
                 e.preventDefault();
-                if($('td.checkbox input:checked').length){
-                    if(multiToggleRequerInteracao()) return;;
+                if($('td.checkbox-col input:checked').length){
+                    multiToggleRequerInteracao()
+                    return;;
                 }
                 var $element = $(this);
                 $.post(
@@ -413,8 +418,8 @@ $(document).ready(function(){
             },
             multiToggleRequerInteracao = function(){
                 if(window.confirm("Deseja aplicar essa ação para todos os itens selecionados?")){
-                    var list = $('td.checkbox input:checked').map(function(){
-                        return $(this).closest("tr").attr("id").replace("items[]_","");
+                    var list = $('td.checkbox-col input:checked').map(function(){
+                        return $(this).val();
                     }).get().join();
                     $.post(
                         '/edcmidia/setinteracao/',
@@ -429,15 +434,58 @@ $(document).ready(function(){
                     return true;
                 }
                 return false;
+            },
+            handleCheckIn = function(){
+
+                $("#edcMidiaGridView .toggle-interation a").addClass('disabled');
+                $("#edcMidiaGridView .buttoncolumn a").addClass('disabled');
+                $("#edcMidiaInativoGridView .toggle-interation a").addClass('disabled');
+                $("#edcMidiaInativoGridView .buttoncolumn a").addClass('disabled');
+
+                $(".w-help-popover").addClass('in').removeClass("out");
             }
+            handleCheckOut = function(){
+              $("#edcMidiaGridView .toggle-interation a").removeClass('disabled');
+              $("#edcMidiaGridView .buttoncolumn a").removeClass('disabled');
+              $("#edcMidiaInativoGridView .toggle-interation a").removeClass('disabled');
+              $("#edcMidiaInativoGridView .buttoncolumn a").removeClass('disabled');
+
+              $(".w-help-popover").removeClass('in').addClass("out");
+            }
+            handleCheck = function(){
+                    if($(".checkbox-col input:checked").length > 1){
+                        handleCheckIn();
+                    }
+                    else if(!$(".checkbox-col input:checked").length){
+                        handleCheckOut();
+                    }
+                }
             initRepeate = function()
             {
-                $("#edcMidiaGridView").on('click','td:not(.buttoncolumn, .checkbox, .toggle-interation), a.detalhes', onClickEdcMidiaPreview);
-                $("#edcMidiaInativoGridView").on('click','td:not(.buttoncolumn, .checkbox, .toggle-interation)', onClickEdcMidiaPreview);
+                var $gridAtivo = $("#edcMidiaGridView");
+                var $gridInativo = $("#edcMidiaInativoGridView");
+                $gridAtivo.on('click','td:not(.buttoncolumn, .checkbox-col, .toggle-interation), a.detalhes', onClickEdcMidiaPreview);
+                $gridInativo.on('click','td:not(.buttoncolumn, .checkbox-col, .toggle-interation)', onClickEdcMidiaPreview);
                 $("#setRequerInteracaoButton").on('click', onClickSetRequerInteracaoButton);
                 $("#removeRequerInteracaoButton").on('click', onClickRemoveRequerInteracaoButton);
                 $('a.setRequerInteracao').on('click', alterRequerInteracao);
                 $('.awesome-tooltip').tooltip();
+                $gridAtivo.on('change','.checkbox-col input', handleCheck);
+                $gridInativo.on('change','.checkbox-col input', handleCheck);
+                $("#edcMidiaGridView_c0_all, #edcMidiaInativoGridView_c0_all").on('change', function(){
+                    if(this.checked){
+                        handleCheckIn();
+                        return;
+                    }
+                    handleCheckOut();
+                });
+                var onRefreshGrid = function(){
+                    saveNewEdcMidiaOrdem();
+                    if($(".w-help-popover").hasClass("in"))
+                        $(".w-help-popover").removeClass('in').addClass("out");
+                }
+                $gridAtivo.on('update',onRefreshGrid);
+                $gridInativo.on('update',onRefreshGrid);
             };
 
         return {
@@ -465,6 +513,35 @@ $(document).ready(function(){
                 $importUrlContentButton.on('click', onClickImportUrlContentButton);
                 $dropDownTipoMidia.on('change', onChangeDropDownTipoMidia);
 
+                $(".w-help-popover .interation")
+                    .off().click(function(e){
+                        e.preventDefault();
+                        e.stopPropagation();
+                        $("#edcMidiaGridView .toggle-interation a").first().click();
+                    });
+                $(".w-help-popover .delete")
+                    .off().click(function(e){
+                        e.preventDefault();
+                        e.stopPropagation();
+                        $("#edcMidiaGridView .buttoncolumn .excluir")
+                        .first().click();
+                    });
+                $(".w-help-popover .active")
+                    .off().click(function(){
+                        var list = $("td.checkbox-col input:checked").map(function(){
+                            return $(this).val();
+                        }).get().join();
+                        $.post(
+                            '/edcmidia/ActivateDeactivateMultipleLines',
+                            {checked:list},
+                            function(data){
+                                window.WiAlert(data.s,data.m);
+                                refreshGridView();
+                            },
+                            'json'
+                        );
+                    })
+
                 if(!$createButton.hasClass("disabled"))
                 {
                     $createButton.on('click', onClickCreateButton);
@@ -482,7 +559,7 @@ $(document).ready(function(){
                 $("a.disabled").css('cursor','not-allowed');
 
                 initRepeate();
-                /*$("#edcMidiaGridView").on('click','td', onClickEdcMidiaPreview);
+                /*$gridAtivo.on('click','td', onClickEdcMidiaPreview);
                  $("#edcMidiaInativoGridView").on('click','td', onClickEdcMidiaPreview);*/
             },
             makeGridViewSortable: function(id, data)

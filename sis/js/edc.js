@@ -61,12 +61,22 @@ $(document).ready(function()
             {
                 $.each(r.Edc, function(index, value)
                 {
-                    $('#Edc_'+index).val(value);
-
                     if(index === 'LiberaAvaliacao')
                     {
                         $(':radio[name="Edc[LiberaAvaliacao]"][value='+value+']').attr('checked', true);
+                        return;
                     }
+                    if(index === 'Estude')
+                    {
+                        $('input[name="Edc[Estude]"][value='+value+']').attr('checked', true);
+                        return;
+                    }
+                    if(index === 'Pratique')
+                    {
+                        $('input[name="Edc[Pratique]"][value='+value+']').attr('checked', true);
+                        return;
+                    }
+                    $('#Edc_'+index).val(value);
                 });
 
                 $modalEdc.modal().find('form').attr("action",'/edc/update');
@@ -265,9 +275,10 @@ $(document).ready(function()
         var resetForm = function()
         {
             $modalEdc.find("form").attr("action",'/edc/create');
-            $edcForm.find('input').not('#Edc_IdDisciplina, :radio, input[type="submit"]').val('');
+            $edcForm.find('input').not('#Edc_IdDisciplina, :radio, :checkbox, input[type="submit"]').val('');
             $edcForm.find('textarea').val('');
             $edcForm.find(':radio').attr('checked', false);
+            $edcForm.find(':checkbox').attr('checked', false);
         };
 
         var showEquivalent = function()

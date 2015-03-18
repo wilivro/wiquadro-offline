@@ -17,7 +17,7 @@ $(document).ready(function()
         new nicEditor(
                 {
                     //iconsPath : '/js/nicEdit/nicEditorIcons.gif',
-                    fullPanel: true,
+                    fullPanel: true
                 }).panelInstance('Questao_Texto');
     }
 
@@ -168,6 +168,7 @@ $(document).ready(function()
                         {
                             $(this).attr('name', 'Dica[' + index + '][Numero]');
                             tr.find('textarea.texto').attr('name', 'Dica[' + index + '][Texto]');
+                            tr.find('input.id').attr('name', 'Dica[' + index + '][Id]');
                         }
                     });
                 },
