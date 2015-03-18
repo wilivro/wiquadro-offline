@@ -99,6 +99,7 @@ $(document).ready(function()
         {
             e.preventDefault();
             var data = serializeCampos();
+            var disciplinas = serializeDisciplinas();
             var geral = serializeGeral();
             
             if(!data)
@@ -109,6 +110,7 @@ $(document).ready(function()
                 {
                     campos: data,
                     geral: geral,
+                    disciplinas: disciplinas
                 },
                 function(r)
                 {
@@ -123,7 +125,8 @@ $(document).ready(function()
                         return false;
                     }
                 },
-                'json');
+                'json'
+            );
         };
         
         var serializeGeral = function()
@@ -134,9 +137,22 @@ $(document).ready(function()
             geral.Nome = $divGeral.find('#Formulariodinamico_Nomw').val();
             geral.IdUsuario = $divGeral.find('#Formulariodinamico_IdUsuario').val();
             geral.IdCliente = $divGeral.find('#Formulariodinamico_IdCliente').val();
+            geral.IdProjeto = $divGeral.find('#Formulariodinamico_IdProjeto').val();
             geral.IdGrupoUsuario = $divGeral.find('#Formulariodinamico_IdGrupoUsuario').val();
             
             return geral;
+        };
+        var serializeDisciplinas = function()
+        {
+            var disciplinas = {};
+            $('#disciplinas input').each( function(i, disciplina){
+                disciplina = $(disciplina);
+                
+                if(disciplina.is(':checked'))
+                    disciplinas[i] = disciplina.val();
+            });
+            
+            return disciplinas;
         };
         
         var serializeCampos = function()
@@ -218,12 +234,23 @@ $(document).ready(function()
             
         };
         
+        var copyCampo = function(e)
+        {
+            e.preventDefault();
+            var $li = $(this).closest('li').clone(), qtdLi = $ulCampos.find('li').length;
+            $li.find('input.id').val('');
+            $li.find('input.ordem').val(qtdLi + 1);
+            $ulCampos.append($li);
+            $li.find('input.titulo').focus();
+        };
+        
         var init = function()
         { 
             $('#campos li.newCampo').on('change', 'select.tipoPergunta', changeTipoPergunta);
             $('.deleteOpcao').on('click', deleteOpcao);
             $('ul.opcoes').sortable();
             $('a.deleteCampo').on('click', deletarCampo);
+            $('a.copyCampo').on('click', copyCampo);
         };
         
         return{

@@ -1,6 +1,7 @@
 ul#campos
 {
     margin-left: 0;
+    padding-left: 0;
 }
 ul#campos > li
 {
@@ -9,7 +10,7 @@ ul#campos > li
     margin-bottom: 5px;
     list-style: none;
     margin: 5px 10px 5px 10px;
-    background: #FCF8E3;
+    background: #FBFBFB; /*#FCF8E3;*/
     padding: 7px;
     border-radius: 3px;
     border: 1px solid #CCC;
@@ -29,18 +30,23 @@ a.deleteOpcao, a.addOpcao
     min-width: 15px;
     text-align: center;
     padding: 2px;
+    font-size: 12px;
 }
-
-a.deleteOpcao:hover, a.addOpcao:hover
+a.deleteOpcao
+{
+    color: #c65850;
+}
+a.deleteOpcao:hover/*, a.addOpcao:hover*/
 {
     text-decoration: none;
     border-radius: 10px;
-    background-color: #CCC;
+    background-color: #FFF;
+    color: #c65850;
 }
 
 ul.opcoes
 {
-    margin-left: 0;
+    padding-left: 0;
 }
 
 ul.opcoes > li.opcao
@@ -63,8 +69,29 @@ div.modelTextarea
     width: 300px;
 }
 
-a.deleteCampo
+a.deleteCampo, a.copyCampo
 {
     float: right;
     cursor: pointer;
+    margin-left: 2px;
+}
+
+div.form-inline > label
+{
+    width: 120px;
+}
+
+div.form-inline > input.tituloQuest
+{
+    width: 75%;
+}
+
+div.optionsQuest > input.opcao
+{
+    width: 350px;
+}
+
+div.form-inline > select.tipoPergunta
+{
+    /*width: 100px;*/
 }

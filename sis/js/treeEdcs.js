@@ -311,7 +311,11 @@ $(document).ready(function()
             }
             $('[data-id="'+target+ '"]').find('div').first().css('background-color','#5AB45A');
             
-        }         
+        },
+        onClickEdcRow = function(){
+            $(this).find("a").first().click();
+        }
+
 
         return{
             init: function()
@@ -325,6 +329,7 @@ $(document).ready(function()
                 $("#edc-accordion").on("click",".edc-row",function(e){
                     window.location.href = $(this).find("a:not('.getChildren')").attr("href");
                 });
+                $(".tree").on("click",".treeEdc-row",onClickEdcRow);
             }
         }
     })();

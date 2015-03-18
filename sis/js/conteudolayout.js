@@ -132,6 +132,9 @@ $(function(){
                 $forwardButton.attr('disabled', false);
             },
             openEdcMidia = function($element, changeurl){
+                $(".progresso").hide();
+                $(".progresso-wait").show();
+
                 if($element.length)
                 {
                     if(isEdcMidiaDisabled($element))
