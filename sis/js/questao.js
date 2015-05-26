@@ -159,7 +159,7 @@ $(document).ready(function()
                         if (element.is('.alternativa'))
                         {
                             $(this).attr('name', 'alternativa[' + index + '][Numero]');
-                            tr.find('input.texto').attr('name', 'alternativa[' + index + '][Texto]');
+                            tr.find('textarea.texto').attr('name', 'alternativa[' + index + '][Texto]');
                             tr.find('input.correta').attr('name', 'alternativa[' + index + '][Correta]');
                             var letras = $('span.badge');
                             $(letras[index]).html(alfabeto[index]);

@@ -2579,6 +2579,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `Foto` varchar(100) DEFAULT NULL,
   `IdForumUser` int(11) DEFAULT NULL,
   `ForumUserAuth` varchar(50) DEFAULT NULL,
+  `CPF` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `UI_Usuario_Email` (`Email`),
   KEY `Nome` (`Nome`)

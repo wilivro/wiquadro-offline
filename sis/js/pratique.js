@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	var $questList = $("#questList");
-	console.log('.row[data-questao]');
 
 	var onClickQuest = function(){
 		var $self = $(this);

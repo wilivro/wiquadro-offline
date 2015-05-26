@@ -127,6 +127,7 @@ $(function(){
             },
             clearCountdown = function(){
                 clearInterval(SETINTERVAL_COUNTDOWN_ID);
+                $forwardButton.text("");
             },
             defaultStateForwardButton = function(){
                 $forwardButton.attr('disabled', false);
@@ -166,7 +167,7 @@ $(function(){
                                     defaultStateForwardButton();
                                     releaseNextEdcmidia();
                                 }
-                                else if(data.RequerInteracao == 'F')
+                                else if(data.RequerInteracao === 'F')
                                 {
                                     startCountdown(data.TempoMinimo);
                                 }
@@ -178,7 +179,7 @@ $(function(){
                                 showCommentsButton();
                             });
                         }, 1000);    
-                    }
+                    };
 
                     var updateConclusionDate = recordTempoTotalInCasePageChange();
 
@@ -188,9 +189,10 @@ $(function(){
                     }else
                     {
                         saveEdcMidia();
-                    };
+                    }
                 }else
                 {
+                    //Trecho que verifica se a midia acessada é a ultima da lição.
                     if(checkIfIsTheLastEdcmidia())
                     {
                         recordConclusionDateForEdc(edcMidiaActive().data('id'), $alunoTurmaId.val());
@@ -198,17 +200,8 @@ $(function(){
                 }
             },
             checkIfIsTheLastEdcmidia = function(){
-                if(!edcMidiaActive().length)
-                {
-                    return false;
-                }
-
-                if(edcMidiaActive().data('ultimamidia') === 0)
-                {
-                    return false;
-                }
-
-                return true;
+                var $edcMidiaActive = edcMidiaActive();
+                return  ($edcMidiaActive.length) && ($edcMidiaActive.data('ultimamidia') === 1);
             },
             recordConclusionDateForEdc = function(edcMidiaId, alunoTurmaId){
                 $.ajax({
@@ -216,7 +209,19 @@ $(function(){
                     data: {edcMidiaId: edcMidiaId, alunoTurmaId: alunoTurmaId},
                     type: 'post'
                 }).done(function(){
-                    window.location = '/plataforma/treeedcs/alunoturma/' + alunoTurmaId;
+                    
+                    var modalFacebook = $('#publishFacebook');
+
+                    if(!modalFacebook.length){
+                        window.location = '/plataforma/treeedcs/alunoturma/' + alunoTurmaId;
+                    }
+                    
+                    modalFacebook.modal('show');
+                    
+                    modalFacebook.on('hide.bs.modal', function()
+                    {
+                        window.location = '/plataforma/treeedcs/alunoturma/' + alunoTurmaId;
+                    });
                 });
             },
             isEdcMidiaDisabled = function($element){
@@ -501,19 +506,17 @@ $(function(){
                 e.preventDefault();
                 openTurmaChatModal();
             },
-            
             onClickTurmaForumLink = function(e)
             {
                 e.preventDefault();
                 $('#turmaForum').css({width: '100%'}).modal("show");
-            };
+            },
             onClickbtnListFavorits = function(){
                 $("#listFavorits").modal('show');
             };
 
         return {
             init: function(){
-                console.log($lastOpenEdcMidia);
                 applyTooltipInElements();
                 fixContentHeight();
                 if(edcMidiaActive().length)
@@ -580,13 +583,11 @@ $(function(){
     {
         if (!b)
             ConteudoLayout.releaseNextEdcmidia();
-    }
+    };
 
     seguir = function()
     {
         ConteudoLayout.goToNextEdcMidia();
-    }
-
-    
+    };
 });
 

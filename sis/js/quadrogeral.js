@@ -107,11 +107,23 @@ $(function(){
                     });
                 }
             };
-
+        
+        var verifyGroupBy = function()
+        {
+            if($('input.groupBy:checked').val() === 'disciplina')
+            {
+                $($disciplina.find('option')[0]).attr('selected', true);
+                $disciplina.attr('disabled', true);
+            }
+            else
+                $disciplina.attr('disabled', false);
+        };
+        
         return {
             init: function(){
                 buildGrid();
-
+                verifyGroupBy();
+                
                 if($cliente.length)
                 {
                     $cliente.on('change', onChangeCliente);
@@ -121,7 +133,9 @@ $(function(){
                         $cliente.change();
                     }
                 }
-
+                
+                $('input.groupBy').on('change', verifyGroupBy);
+                
                 if($projeto.length)
                 {
                     $projeto.on('change', onChangeProjeto);

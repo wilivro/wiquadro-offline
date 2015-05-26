@@ -229,7 +229,7 @@ th {
   select {
     background: #fff !important;
   }
-  .navbar {
+  .navbar, .navbar-fixed-top {
     display: none;
   }
   .table td,
@@ -5388,7 +5388,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1050;
+  z-index: 1070;
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
@@ -6478,7 +6478,7 @@ Bold 700 Italic
   min-height: 150px;
 }
 .selectcustom {
-  z-index: 5055;
+  z-index: 1010;
 }
 span.customSelect {
   background: #f1f1f1;
@@ -7712,10 +7712,25 @@ h4
     background: #2e3c4a;
     color:white;
 }
-.popover .arrow:after
+.popover > .popover-title
 {
-    border-bottom-color: #2e3c4a !important;
+    background: #2e3c4a;
+    color:white;
+    font-weight: bold;
 }
+.popover.top > .arrow::after {
+    border-top-color: #2e3c4a;
+}
+.popover.right > .arrow::after {
+    border-right-color: #2e3c4a;
+}
+.popover.left > .arrow::after {
+    border-left-color: #2e3c4a;
+}
+.popover.bottom > .arrow::after {
+    border-bottom-color: #2e3c4a;
+}
+
 .progress
 {
     position: relative;

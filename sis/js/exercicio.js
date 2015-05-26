@@ -114,6 +114,11 @@ $(document).ready(function()
                         $('#midia').removeClass('hide');
                         window.location.hash = 'midias';
                         $('a.acaoAlternativa').remove();
+                        
+                        if(r.finished)
+                        {
+                            $('#publishFacebook').modal('show');
+                        }
                     }
                     else
                     {
