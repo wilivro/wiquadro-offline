@@ -119,8 +119,6 @@ $(document).ready(function(){
             refreshGridView = function(){
                 $.fn.yiiGridView.update('edcMidiaGridView');
                 $.fn.yiiGridView.update('edcMidiaInativoGridView');
-                //$('#edcMidiaGridView').trigger("update");
-                //$('#edcMidiaInativoGridView').trigger("update");
                 if($(".w-help-popover").hasClass("in"))
                     $(".w-help-popover").removeClass('in').addClass("out");
             },
@@ -158,7 +156,6 @@ $(document).ready(function(){
             },
             saveNewEdcMidiaOrdem = function(e, ui){
                 var data = $('tbody', '#edcMidiaGridView').sortable('serialize', {key: 'items[]', attribute: 'id'});
-
                 $.ajax({
                     type: 'post',
                     url: '/edcmidia/saveNewEdcMidiaOrdem',
@@ -529,6 +526,9 @@ $(document).ready(function(){
                 $(".w-help-popover .active")
                     .off().click(function(){
                         var list = $("td.checkbox-col input:checked").map(function(){
+                            var $parent = $(this).closest(".grid-view");
+                            var $target = $(".grid-view").not($parent).find("tbody");
+                            $(this).closest("tr").appendTo($target);
                             return $(this).val();
                         }).get().join();
                         $.post(
@@ -536,7 +536,7 @@ $(document).ready(function(){
                             {checked:list},
                             function(data){
                                 window.WiAlert(data.s,data.m);
-                                refreshGridView();
+                                saveNewEdcMidiaOrdem();
                             },
                             'json'
                         );

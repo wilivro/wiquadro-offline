@@ -1,2 +1,5 @@
 User-agent: *
+Disallow: /site/changeTargetLanguage
+Disallow: /uploads
+Disallow: /uploads/
 Disallow: /uploads/*

@@ -238,6 +238,14 @@ $(function(){
         });
     });
 
+    var $groupBy = $(".group-by");
+
+	$groupBy.on('click',function(e){
+		e.preventDefault();
+        $groupBy.removeClass("active");
+		$(this).addClass('active');
+	});
+
     $modal.on('click', '.link', function(e){
         var id = $(this).data('id');
 

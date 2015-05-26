@@ -1,0 +1,56 @@
+/*index*/
+div.container-dropbox
+{
+    border: 1px solid #e5e5e5;
+    min-height: 200px;
+    border-radius: 3px;
+}
+div.modal-body
+{
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+}
+span.fa-file-o
+{
+    font-size: 100px;
+    color: #13a4e2;
+    margin: 10px;
+}
+/*_listFiles*/
+table#tableDropbox th
+{
+    border-bottom: 3px solid #e5e5e5;
+    color: #aaaabc;
+}
+table#tableDropbox a.aFile, table#tableDropbox a.aFile:hover
+{
+    color: #3d464d;
+}
+/*autorizacao*/
+img.logo
+{
+    width: 200px;
+}
+div.container-logo
+{
+    border: 1px solid gray;
+    text-align: center;
+    color: #999;
+    padding: 30px;
+    border-radius: 3px;
+}
+
+/*_folderEmpty*/
+div.container-empty
+{
+    text-align: center;
+    font-size: 15px;
+    margin: 50px 0;
+    color: #999;
+}
+div.container-empty > span.fa
+{
+    font-size: 100px;
+    color: #13a4e2;
+}

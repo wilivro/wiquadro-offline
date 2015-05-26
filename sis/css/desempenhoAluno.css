@@ -1,0 +1,40 @@
+.input-group.date
+{
+    margin-left: 20px;
+}
+.input-group-addon
+{
+    background: #e8e7e3;
+    border-color: #e8e7e3;
+    border-right: 1px solid #CCC !important;
+}
+/*.form-control
+{
+    z-index: -1;
+}*/
+.table.table-bordered th{text-align: center;}
+.table.table-bordered td{vertical-align: middle; text-align: center;}
+.glyphicon-plus-sign.w-expand-row
+{
+    color: #2E3C4A;
+    cursor: pointer;
+}
+.radioProgress
+{
+    display: inline-block;
+}
+.col-Conteudo
+{
+    text-align: left !important;
+}
+.modal-dialog
+{
+    z-index: 1;
+}
+.grouper td,th,
+.grouper-vertical td,th,
+.grouper-head td,th
+{
+    border: 2px solid #AAA !important;
+    border-top: 2px solid #AAA !important;
+}

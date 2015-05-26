@@ -27,16 +27,16 @@ $(document).ready(function()
                 {
                     var message = '<ul>';
 
-                    for(var attr in r.mensagem)
-                    {
-                        if(r.mensagem.hasOwnProperty(attr))
-                        {
-                            message += '<li>' + r.mensagem[attr] + '</li>';
-                        }
-                    }
+//                    for(var attr in r.mensagem)
+//                    {
+//                        if(r.mensagem.hasOwnProperty(attr))
+//                        {
+//                            message += '<li>' + r.mensagem[attr] + '</li>';
+//                        }
+//                    }
                     message += '</ul>';
 
-                    window.WiAlert('warning', message);
+                    window.WiAlert('warning', r.mensagem);
                 }
             },
             'json'
@@ -355,8 +355,10 @@ $(document).ready(function()
         
         return false;
     });
-    
+
+    var completarCursoAjaxFlag = true;
     var nomeAluno, urlTransferencia;
+
     /**
      * Exibe modal com turmas disponíveis para transferência.
      * @param event e
@@ -399,6 +401,43 @@ $(document).ready(function()
             },
             'json'
         );
+    },
+    onClickCompletarCursoButton = function(e){
+        e.preventDefault();
+
+        if(window.confirm('Esta ação é irreversível e concluirá todo módulo Estude do curso, certifique-se de estar fazendo isso em um aluno de testes ou que realmente seja necessário a conclusão.'))
+        {
+            var $this = $(this),
+                url = $this.attr('href'),
+                alunoturma = $this.data('alunoturma');
+
+            var ajax = completarCurso(url, alunoturma);
+
+            if(ajax)
+            {
+                ajax.done(function(data, textStatus, jqXHR){
+                    window.WiAlert('success', jqXHR.responseText);
+                }).fail(function(jqXHR, textStatus, errorThrown){
+                    window.WiAlert('warning', jqXHR.responseText);
+                }).always(function(){
+                    completarCursoAjaxFlag = true;
+                });
+            }else
+            {
+                window.WiAlert('warning', 'Ocorreu um erro ao tentar completar o curso.');
+            }
+        }
+    },
+    completarCurso = function(url, alunoturma){
+        if(url && alunoturma && completarCursoAjaxFlag)
+        {
+            completarCursoAjaxFlag = false;
+            return $.ajax({
+                url: url,
+                type: 'post',
+                data: {alunoturma: alunoturma}
+            });
+        }
     };
     
     $('#modalShowTurmas').on('hide.bs.modal', function()
@@ -407,6 +446,6 @@ $(document).ready(function()
     });
     $('a.transferencia').on('click', showTurmas);
     $('a.turmaTransferir').on('click', transferir);
-    
+    $('.completarCursoButton').on('click', onClickCompletarCursoButton);
     $('#changePasswordButton').on('click', changeStudentPassword);
 });

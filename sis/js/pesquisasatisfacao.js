@@ -148,13 +148,14 @@ $(function(){
             removeAlternativeFromTheList($(this));
         },
         onClickSaveQuestionButton = function(){
+            var $self = $(this);
             var confirmMessage = 'Você tem uma alternativa escrita porém não adicionada, pressione OK para prosseguir sem adicionar e Cancel para para voltar e adicionar a alternativa.';
 
             if(($alternative.val() !== '') && (!window.confirm(confirmMessage)))
             {
                 return false;
             }
-
+            $self.addClass("disabled").off();
             $.ajax({
                 type: 'post',
                 url: '/cliente/saveSatisfactionSurveyQuestion',
@@ -173,6 +174,7 @@ $(function(){
                     }
                     message += '</ul>';
                     window.WiAlert('warning', message);
+                    $self.removeClass("disabled").click(onClickSaveQuestionButton);
                 }else
                 {
                     window.WiAlert('success', data.m);
