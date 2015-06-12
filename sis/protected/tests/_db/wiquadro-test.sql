@@ -90,7 +90,8 @@ CREATE TABLE IF NOT EXISTS `alunoresponsavel` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `IdAluno` int(11) NOT NULL,
   `IdResponsavel` int(11) NOT NULL,
-  `Data` datetime NOT NULL,
+  `Data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Status` enum('T','F','W') DEFAULT NULL COMMENT 'T = true, F = false, W = waiting',
   PRIMARY KEY (`Id`),
   KEY `FKIdUsuario` (`IdResponsavel`) USING BTREE,
   KEY `FK_alunoresponsavel_usuario` (`IdAluno`) USING BTREE,
@@ -111,6 +112,7 @@ CREATE TABLE IF NOT EXISTS `alunoturma` (
   `DataHoraUltimoAcesso` datetime DEFAULT NULL,
   `Situacao` enum('E','A','R') NOT NULL COMMENT 'E = Em Andamento; A = Aprovado; R = Reprovado;',
   `DataConclusao` datetime DEFAULT NULL,
+  `ResponderForm` enum('T','F') NOT NULL DEFAULT 'F',
   PRIMARY KEY (`Id`),
   UNIQUE KEY `IdAluno_IdTurma` (`IdAluno`,`IdTurma`),
   KEY `FK_alunoturma_turma` (`IdTurma`),
@@ -181,6 +183,20 @@ CREATE TABLE IF NOT EXISTS `alunoturmaedcmidiainteracao` (
   CONSTRAINT `FK_alunoturmaedcmidiainteracao_alunoturmaedcmidia` FOREIGN KEY (`IdAlunoTurmaEdcMidia`) REFERENCES `alunoturmaedcmidia` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_alunoturmaedcmidiainteracao_tipointeracao` FOREIGN KEY (`IdTipoInteracao`) REFERENCES `tipointeracao` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+
+
+-- Dumping structure for table wiquadro.alunoturmapratiquecartaoresposta
+CREATE TABLE IF NOT EXISTS `alunoturmapratiquecartaoresposta` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `IdAlunoTurmaEdc` int(10) unsigned NOT NULL,
+  `Imagem` varchar(200) NOT NULL,
+  `DataHoraUpload` datetime NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `FK__alunoturmaedc` (`IdAlunoTurmaEdc`),
+  CONSTRAINT `FK__alunoturmaedc` FOREIGN KEY (`IdAlunoTurmaEdc`) REFERENCES `alunoturmaedc` (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 
@@ -467,8 +483,12 @@ CREATE TABLE IF NOT EXISTS `disciplina` (
   `Teste` enum('T','F') NOT NULL DEFAULT 'T',
   `TentativaProva` int(11) DEFAULT '1',
   `TipoCorrecao` enum('A','P') DEFAULT NULL,
+  `IdAdaptativaCourse` int(11) DEFAULT NULL,
+  `IdAdaptativaLevel` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `UI_Disciplina_Titulo` (`IdCliente`,`Titulo`),
+  UNIQUE KEY `IdAdaptativaCourse` (`IdAdaptativaCourse`),
+  UNIQUE KEY `IdAdaptativaLevel` (`IdAdaptativaLevel`),
   KEY `FK_disciplina_disciplina` (`IdDisciplinaDependencia`) USING BTREE,
   CONSTRAINT `FK_disciplina_cliente` FOREIGN KEY (`IdCliente`) REFERENCES `cliente` (`Id`),
   CONSTRAINT `FK_disciplina_disciplina` FOREIGN KEY (`IdDisciplinaDependencia`) REFERENCES `disciplina` (`Id`)
@@ -484,7 +504,6 @@ CREATE TABLE IF NOT EXISTS `edc` (
   `Titulo` varchar(600) NOT NULL,
   `Descricao` text NOT NULL,
   `IdDisciplina` int(11) NOT NULL,
-  `QuantidadeQuestoesProva` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'a quantidade de questões desse edc que irão para a prova',
   `Ativo` enum('T','F') NOT NULL DEFAULT 'T',
   `LiberaAvaliacao` enum('T','F') NOT NULL COMMENT 'determina se a partir desse EDC o aluno pode fazer a prova.',
   `MetodoAprovacao` enum('A','P') NOT NULL COMMENT 'A = Aprenda; P = Pratique',
@@ -611,11 +630,13 @@ CREATE TABLE IF NOT EXISTS `escola` (
   `Nome` varchar(50) NOT NULL,
   `IdEndereco` int(11) NOT NULL,
   `IdCliente` int(11) NOT NULL,
+  `IdAdaptativaCollege` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `UI_Escola_Nome` (`IdCliente`,`Nome`),
+  UNIQUE KEY `IdAdaptativaCollege` (`IdAdaptativaCollege`),
   KEY `FK_escola_endereco` (`IdEndereco`),
-  CONSTRAINT `FK_escola_endereco` FOREIGN KEY (`IdEndereco`) REFERENCES `endereco` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_escola_cliente` FOREIGN KEY (`IdCliente`) REFERENCES `cliente` (`Id`)
+  CONSTRAINT `FK_escola_cliente` FOREIGN KEY (`IdCliente`) REFERENCES `cliente` (`Id`),
+  CONSTRAINT `FK_escola_endereco` FOREIGN KEY (`IdEndereco`) REFERENCES `endereco` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
@@ -626,16 +647,20 @@ CREATE TABLE IF NOT EXISTS `formulariodinamico` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(200) NOT NULL,
   `IdCliente` int(11) NOT NULL,
+  `IdProjeto` int(11) DEFAULT NULL,
   `IdUsuario` int(11) NOT NULL,
   `IdGrupoUsuario` int(11) NOT NULL,
   `DataCriacao` datetime NOT NULL,
   `DataAlteracao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Ativo` enum('T','F') NOT NULL DEFAULT 'T',
   PRIMARY KEY (`Id`),
   KEY `FK_cliente` (`IdCliente`),
   KEY `FK_usuario` (`IdUsuario`),
   KEY `FK_grupoUsuario` (`IdGrupoUsuario`),
+  KEY `FK_projeto` (`IdProjeto`),
   CONSTRAINT `FK_cliente` FOREIGN KEY (`IdCliente`) REFERENCES `cliente` (`Id`),
   CONSTRAINT `FK_grupoUsuario` FOREIGN KEY (`IdGrupoUsuario`) REFERENCES `grupousuario` (`Id`),
+  CONSTRAINT `FK_projeto` FOREIGN KEY (`IdProjeto`) REFERENCES `projeto` (`Id`),
   CONSTRAINT `FK_usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `usuario` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -654,7 +679,7 @@ CREATE TABLE IF NOT EXISTS `formulariodinamicocampo` (
   PRIMARY KEY (`Id`) USING BTREE,
   KEY `FK_form` (`IdForm`) USING BTREE,
   KEY `FK_tipo` (`Tipo`) USING BTREE,
-  CONSTRAINT `FK_form` FOREIGN KEY (`IdForm`) REFERENCES `formulariodinamico` (`Id`),
+  CONSTRAINT `FK_form` FOREIGN KEY (`IdForm`) REFERENCES `formulariodinamico` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_tipo` FOREIGN KEY (`Tipo`) REFERENCES `tiposcamposformulario` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=1260;
 
@@ -681,12 +706,12 @@ CREATE TABLE IF NOT EXISTS `formulariodinamicoresposta` (
 
 -- Dumping structure for procedure wiquadro.geraCartoes
 DELIMITER //
-CREATE DEFINER=`wiquadro`@`%` PROCEDURE `geraCartoes`(IN `_cliente` INT, IN `_disciplina` INT, IN `_projeto` INT, IN `_turma` INT, IN `_usuario` INT, IN `_total` INT, IN `_email` VARCHAR(150))
+CREATE DEFINER=`wiquadro`@`localhost` PROCEDURE `geraCartoes`(IN `_cliente` INT, IN `_disciplina` INT, IN `_projeto` INT, IN `_turma` INT, IN `_usuario` INT, IN `_total` INT, IN `_email` VARCHAR(150))
 BEGIN
 DECLARE seq, qtd INT DEFAULT 0;
 DECLARE random varchar(100);
 
-DECLARE CONTINUE HANDLER FOR SQLSTATE '23000'
+DECLARE CONTINUE HANDLER FOR SQLSTATE '23505'
 BEGIN
     SET qtd = qtd - 1;
     SET seq = seq - 1;
@@ -710,6 +735,8 @@ WHILE qtd < _total DO
 	
 END WHILE;
 COMMIT;
+
+SELECT qtd;
 END//
 DELIMITER ;
 
@@ -771,6 +798,19 @@ CREATE TABLE IF NOT EXISTS `logdicas` (
   CONSTRAINT `FK_logdicas_questaodica` FOREIGN KEY (`IdDica`) REFERENCES `questaodica` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_logdicas_usuario` FOREIGN KEY (`IdAluno`) REFERENCES `usuario` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+
+
+-- Dumping structure for table wiquadro.logemail
+CREATE TABLE IF NOT EXISTS `logemail` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `To` varchar(50) NOT NULL DEFAULT '0',
+  `From` varchar(50) NOT NULL DEFAULT '0',
+  `Status` varchar(50) NOT NULL,
+  `DataHora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 
@@ -2135,6 +2175,21 @@ CREATE TABLE IF NOT EXISTS `projetodisciplina` (
 -- Data exporting was unselected.
 
 
+-- Dumping structure for table wiquadro.projetodisciplinaformulario
+CREATE TABLE IF NOT EXISTS `projetodisciplinaformulario` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `IdProjetoDisciplina` int(11) NOT NULL,
+  `IdFormulario` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_projetodisciplina` (`IdProjetoDisciplina`),
+  KEY `FK_formulario_` (`IdFormulario`),
+  CONSTRAINT `FK_formulario_` FOREIGN KEY (`IdFormulario`) REFERENCES `formulariodinamico` (`Id`),
+  CONSTRAINT `FK_projetodisciplina` FOREIGN KEY (`IdProjetoDisciplina`) REFERENCES `projetodisciplina` (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+
+
 -- Dumping structure for table wiquadro.projetoescola
 CREATE TABLE IF NOT EXISTS `projetoescola` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
@@ -2230,6 +2285,7 @@ CREATE TABLE IF NOT EXISTS `questao` (
   `Secao` enum('P','T') NOT NULL COMMENT 'P = Pratique; T = Teste',
   `Orientacao` text COMMENT 'Orientação ao professor de como trabalhar a questão',
   PRIMARY KEY (`Id`),
+  UNIQUE KEY `Numero_IdEdc_Secao` (`Numero`,`IdEdc`,`Secao`),
   KEY `FK_questao_edc` (`IdEdc`) USING BTREE,
   CONSTRAINT `FK_questao_edc` FOREIGN KEY (`IdEdc`) REFERENCES `edc` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2339,6 +2395,23 @@ CREATE TABLE IF NOT EXISTS `questaorespostamidia` (
 -- Data exporting was unselected.
 
 
+-- Dumping structure for procedure wiquadro.reorder
+DELIMITER //
+CREATE DEFINER=`wiquadro`@`%` PROCEDURE `reorder`()
+BEGIN
+  DECLARE idedcmin INT DEFAULT 0;
+  DECLARE idedcmax INT DEFAULT 0;
+  SELECT MIN(IdEdc) INTO idedcmin FROM questao;
+  SELECT MAX(IdEdc) INTO idedcmax FROM questao;
+  WHILE idedcmin < idedcmax DO
+    SET @ordem:=0;
+    UPDATE questao SET Numero=@ordem:=@ordem+1 WHERE IdEdc = idedcmin ORDER BY Id;
+    SET idedcmin = idedcmin + 1;
+  END WHILE;
+END//
+DELIMITER ;
+
+
 -- Dumping structure for table wiquadro.respostaaluno
 CREATE TABLE IF NOT EXISTS `respostaaluno` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
@@ -2352,34 +2425,16 @@ CREATE TABLE IF NOT EXISTS `respostaaluno` (
   `Acertou` enum('T','F') DEFAULT NULL,
   `TempoAluno` time DEFAULT NULL,
   `DataHoraRespostaAluno` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `IdAluno` int(11) DEFAULT NULL,
   `IdAlunoTurma` int(11) DEFAULT NULL,
   `IdAlunoTurmaProva` int(11) unsigned DEFAULT NULL,
+  `IdQuestaoAlternativa` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `FK_respostaaluno_questao` (`IdQuestao`),
   KEY `FK_respostaaluno_alunoturmaprova` (`IdAlunoTurmaProva`),
   KEY `FK_Alunoturma` (`IdAlunoTurma`) USING BTREE,
-  KEY `FK_respostaaluno_usuario` (`IdAluno`) USING BTREE,
   CONSTRAINT `FK_Alunoturma` FOREIGN KEY (`IdAlunoTurma`) REFERENCES `alunoturma` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_respostaaluno_alunoturmaprova` FOREIGN KEY (`IdAlunoTurmaProva`) REFERENCES `alunoturmaprova` (`Id`),
-  CONSTRAINT `FK_respostaaluno_questao` FOREIGN KEY (`IdQuestao`) REFERENCES `questao` (`Id`) ON DELETE SET NULL,
-  CONSTRAINT `FK_respostaaluno_usuario` FOREIGN KEY (`IdAluno`) REFERENCES `usuario` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
-
-
--- Dumping structure for table wiquadro.respostaalunoalternativa
-CREATE TABLE IF NOT EXISTS `respostaalunoalternativa` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `IdRespostaAluno` int(11) NOT NULL,
-  `NumeroAlternativa` int(11) NOT NULL,
-  `TextoAlternativa` varchar(8000) NOT NULL,
-  `AlternativaCorreta` enum('T','F') NOT NULL,
-  `RespostaAluno` int(1) NOT NULL,
-  PRIMARY KEY (`Id`),
-  UNIQUE KEY `UI_RespostaAlunoAlternativa_Numero` (`IdRespostaAluno`,`NumeroAlternativa`),
-  CONSTRAINT `FK_respostaalunoalternativa_respostaaluno` FOREIGN KEY (`IdRespostaAluno`) REFERENCES `respostaaluno` (`Id`)
+  CONSTRAINT `FK_respostaaluno_questao` FOREIGN KEY (`IdQuestao`) REFERENCES `questao` (`Id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
@@ -2397,6 +2452,28 @@ CREATE TABLE IF NOT EXISTS `respostaalunoalternativaacao` (
   KEY `FK____alunoturma` (`IdAlunoTurma`),
   CONSTRAINT `FK__questaoalternativa` FOREIGN KEY (`IdQuestaoAlternativa`) REFERENCES `questaoalternativa` (`Id`),
   CONSTRAINT `FK____alunoturma` FOREIGN KEY (`IdAlunoTurma`) REFERENCES `alunoturma` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Data exporting was unselected.
+
+
+-- Dumping structure for table wiquadro.respostaalunosintetico
+CREATE TABLE IF NOT EXISTS `respostaalunosintetico` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `IdAlunoTurma` int(11) DEFAULT NULL,
+  `IdQuestao` int(11) DEFAULT NULL,
+  `IdPrimeiraRespostaAlternativa` int(11) DEFAULT NULL,
+  `IdUltimaRespostaAlternativa` int(11) DEFAULT NULL,
+  `Aproveitamento` float unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`Id`),
+  KEY `FK_respostaaluno_questao` (`IdQuestao`),
+  KEY `IdUltimaRespostaAlternativa` (`IdUltimaRespostaAlternativa`),
+  KEY `IdPrimeiraRespostaAlternativa` (`IdPrimeiraRespostaAlternativa`),
+  KEY `IdAlunoTurma` (`IdAlunoTurma`),
+  CONSTRAINT `FK_respostaalunosintetico_alunoturma` FOREIGN KEY (`IdAlunoTurma`) REFERENCES `alunoturma` (`Id`),
+  CONSTRAINT `FK_respostaalunosintetico_questao` FOREIGN KEY (`IdQuestao`) REFERENCES `questao` (`Id`),
+  CONSTRAINT `FK_respostaalunosintetico_respostaalunoalternativa` FOREIGN KEY (`IdUltimaRespostaAlternativa`) REFERENCES `respostaaluno` (`Id`),
+  CONSTRAINT `FK_respostaalunosintetico_respostaalunoalternativa_2` FOREIGN KEY (`IdPrimeiraRespostaAlternativa`) REFERENCES `respostaaluno` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
@@ -2534,8 +2611,12 @@ CREATE TABLE IF NOT EXISTS `turma` (
   `Desempenho` enum('T','F') NOT NULL DEFAULT 'T',
   `Teste` enum('T','F') NOT NULL DEFAULT 'T',
   `IdForumBoard` int(11) DEFAULT NULL,
+  `PossuiSimulado` enum('T','F') NOT NULL DEFAULT 'F',
+  `PossuiRedacao` enum('T','F') NOT NULL DEFAULT 'F',
+  `IdAdaptativaClassroom` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `UI_Turma_Nome` (`Nome`,`IdProjetoEscola`),
+  UNIQUE KEY `IdAdaptativaClassroom` (`IdAdaptativaClassroom`),
   KEY `FK_turma_usuario` (`IdProfessor`),
   KEY `FK_turma_disciplina` (`IdDisciplina`) USING BTREE,
   KEY `FK_turma_projetoescola` (`IdProjetoEscola`) USING BTREE,
@@ -2569,6 +2650,8 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
+  `CPF` varchar(11) DEFAULT NULL,
+  `Matricula` varchar(20) DEFAULT NULL,
   `Senha` varchar(32) NOT NULL,
   `Nascimento` date NOT NULL,
   `Ativo` enum('T','F') NOT NULL DEFAULT 'T',
@@ -2579,10 +2662,27 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `Foto` varchar(100) DEFAULT NULL,
   `IdForumUser` int(11) DEFAULT NULL,
   `ForumUserAuth` varchar(50) DEFAULT NULL,
-  `CPF` varchar(11) DEFAULT NULL,
+  `IdFacebook` varchar(50) DEFAULT NULL,
+  `TokenFacebook` varchar(500) DEFAULT NULL,
+  `DataHoraCadastro` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `UI_Usuario_Email` (`Email`),
+  UNIQUE KEY `cpf` (`CPF`),
   KEY `Nome` (`Nome`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+
+
+-- Dumping structure for table wiquadro.usuariodropbox
+CREATE TABLE IF NOT EXISTS `usuariodropbox` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `IdUsuario` int(11) NOT NULL,
+  `IdUserDropbox` int(11) NOT NULL,
+  `Token` varchar(200) NOT NULL DEFAULT '',
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `IdUsuario` (`IdUsuario`),
+  CONSTRAINT `FK_usuario_usuariodropbox` FOREIGN KEY (`IdUsuario`) REFERENCES `usuario` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
@@ -2600,6 +2700,7 @@ CREATE TABLE IF NOT EXISTS `usuariogrupousuario` (
   KEY `FK_usuariogrupousuario_grupousuario` (`IdGrupoUsuario`),
   KEY `FK_usuariogrupousuario_projeto` (`IdProjeto`),
   KEY `FK_usuariogrupousuario_cliente` (`IdCliente`),
+  KEY `IdUsuario` (`IdUsuario`),
   CONSTRAINT `FK_usuariogrupousuario_cliente` FOREIGN KEY (`IdCliente`) REFERENCES `cliente` (`Id`),
   CONSTRAINT `FK_usuariogrupousuario_grupousuario` FOREIGN KEY (`IdGrupoUsuario`) REFERENCES `grupousuario` (`Id`),
   CONSTRAINT `FK_usuariogrupousuario_projeto` FOREIGN KEY (`IdProjeto`) REFERENCES `projeto` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -2666,6 +2767,62 @@ CREATE TABLE `vw_disciplina_aluno_turma` (
 ) ENGINE=MyISAM;
 
 
+-- Dumping structure for view wiquadro.vw_estude_progresso_aluno
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `vw_estude_progresso_aluno` (
+	`id` INT(11) NOT NULL,
+	`progresso_aluno` BIGINT(21) NOT NULL
+) ENGINE=MyISAM;
+
+
+-- Dumping structure for view wiquadro.vw_estude_progresso_media_turma
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `vw_estude_progresso_media_turma` (
+	`id` INT(11) NOT NULL,
+	`progresso_media_turma` DECIMAL(24,4) NULL
+) ENGINE=MyISAM;
+
+
+-- Dumping structure for view wiquadro.vw_estude_progresso_total
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `vw_estude_progresso_total` (
+	`id` INT(11) NOT NULL,
+	`progresso_total` BIGINT(21) NOT NULL
+) ENGINE=MyISAM;
+
+
+-- Dumping structure for view wiquadro.vw_pratique_progresso_aluno
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `vw_pratique_progresso_aluno` (
+	`id` INT(11) NULL,
+	`progresso_aluno` BIGINT(21) NOT NULL
+) ENGINE=MyISAM;
+
+
+-- Dumping structure for view wiquadro.vw_pratique_progresso_media_turma
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `vw_pratique_progresso_media_turma` (
+	`id` INT(11) NOT NULL,
+	`progresso_media_turma` DECIMAL(24,4) NULL
+) ENGINE=MyISAM;
+
+
+-- Dumping structure for view wiquadro.vw_pratique_progresso_total
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `vw_pratique_progresso_total` (
+	`id` INT(11) NOT NULL,
+	`progresso_total` BIGINT(21) NOT NULL
+) ENGINE=MyISAM;
+
+
+-- Dumping structure for view wiquadro.vw_usuario_permissao_aluno
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `vw_usuario_permissao_aluno` (
+	`idaluno` INT(11) NOT NULL,
+	`idusuario` INT(11) NOT NULL
+) ENGINE=MyISAM;
+
+
 -- Dumping structure for table wiquadro.widget
 CREATE TABLE IF NOT EXISTS `widget` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
@@ -2725,6 +2882,48 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`wiquadro`@`%` SQL SECURITY DEFINER VIEW `vw_
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `vw_disciplina_aluno_turma`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`wiquadro`@`%` SQL SECURITY DEFINER VIEW `vw_disciplina_aluno_turma` AS (select `d`.`Id` AS `IdDisciplina`,`d`.`Titulo` AS `TituloDisciplina`,`t`.`Id` AS `IdTurma`,`at`.`IdAluno` AS `IdAluno`,`at`.`Id` AS `IdAlunoTurma`,`ate`.`IdEdc` AS `IdEdc`,`ate`.`Id` AS `IdAlunoTurmaEdc`,`ate`.`UltimoAcesso` AS `UltimoAcesso` from (((`disciplina` `d` join `turma` `t` on((`t`.`IdDisciplina` = `d`.`Id`))) join `alunoturma` `at` on((`at`.`IdTurma` = `t`.`Id`))) join `alunoturmaedc` `ate` on((`ate`.`IdAlunoTurma` = `at`.`Id`))));
+
+
+-- Dumping structure for view wiquadro.vw_estude_progresso_aluno
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `vw_estude_progresso_aluno`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`wiquadro`@`%` SQL SECURITY DEFINER VIEW `vw_estude_progresso_aluno` AS select `at`.`Id` AS `id`,count(distinct `atem`.`Id`) AS `progresso_aluno` from ((`alunoturma` `at` left join `alunoturmaedc` `ate` on((`at`.`Id` = `ate`.`IdAlunoTurma`))) left join `alunoturmaedcmidia` `atem` on((`ate`.`Id` = `atem`.`IdAlunoTurmaEdc`))) group by `at`.`Id`;
+
+
+-- Dumping structure for view wiquadro.vw_estude_progresso_media_turma
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `vw_estude_progresso_media_turma`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`wiquadro`@`%` SQL SECURITY DEFINER VIEW `vw_estude_progresso_media_turma` AS select `at`.`Id` AS `id`,(count(distinct `atemt`.`Id`) / count(distinct `att`.`Id`)) AS `progresso_media_turma` from (((`alunoturma` `at` left join `alunoturma` `att` on((`at`.`IdTurma` = `att`.`IdTurma`))) left join `alunoturmaedc` `atet` on((`att`.`Id` = `atet`.`IdAlunoTurma`))) left join `alunoturmaedcmidia` `atemt` on((`atet`.`Id` = `atemt`.`IdAlunoTurmaEdc`))) group by `at`.`Id`;
+
+
+-- Dumping structure for view wiquadro.vw_estude_progresso_total
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `vw_estude_progresso_total`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`wiquadro`@`%` SQL SECURITY DEFINER VIEW `vw_estude_progresso_total` AS select `at`.`Id` AS `id`,count(distinct `em`.`Id`) AS `progresso_total` from ((((`alunoturma` `at` join `turma` `t` on((`at`.`IdTurma` = `t`.`Id`))) join `disciplina` `d` on((`t`.`IdDisciplina` = `d`.`Id`))) left join `edc` `e` on((`d`.`Id` = `e`.`IdDisciplina`))) left join `edcmidia` `em` on((`e`.`Id` = `em`.`IdEdc`))) group by `at`.`Id`;
+
+
+-- Dumping structure for view wiquadro.vw_pratique_progresso_aluno
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `vw_pratique_progresso_aluno`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`wiquadro`@`%` SQL SECURITY DEFINER VIEW `vw_pratique_progresso_aluno` AS select `ra`.`IdAlunoTurma` AS `id`,count(distinct `ra`.`Id`) AS `progresso_aluno` from (`respostaaluno` `ra` join `questao` `q` on(((`ra`.`IdQuestao` = `q`.`Id`) and (`q`.`Secao` = 'P')))) group by `ra`.`IdAlunoTurma`;
+
+
+-- Dumping structure for view wiquadro.vw_pratique_progresso_media_turma
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `vw_pratique_progresso_media_turma`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`wiquadro`@`%` SQL SECURITY DEFINER VIEW `vw_pratique_progresso_media_turma` AS select `at`.`Id` AS `id`,(count(distinct `q`.`Id`) / count(distinct `att`.`Id`)) AS `progresso_media_turma` from (((`alunoturma` `at` left join `alunoturma` `att` on((`at`.`IdTurma` = `att`.`IdTurma`))) left join `respostaaluno` `ra` on((`att`.`Id` = `ra`.`IdAlunoTurma`))) join `questao` `q` on(((`ra`.`IdQuestao` = `q`.`Id`) and (`q`.`Secao` = 'P')))) group by `at`.`Id`;
+
+
+-- Dumping structure for view wiquadro.vw_pratique_progresso_total
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `vw_pratique_progresso_total`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`wiquadro`@`%` SQL SECURITY DEFINER VIEW `vw_pratique_progresso_total` AS select `at`.`Id` AS `id`,count(distinct `q`.`Id`) AS `progresso_total` from ((((`alunoturma` `at` join `turma` `t` on((`at`.`IdTurma` = `t`.`Id`))) join `disciplina` `d` on((`t`.`IdDisciplina` = `d`.`Id`))) join `edc` `e` on((`d`.`Id` = `e`.`IdDisciplina`))) join `questao` `q` on(((`e`.`Id` = `q`.`IdEdc`) and (`q`.`Secao` = 'P')))) group by `at`.`Id`;
+
+
+-- Dumping structure for view wiquadro.vw_usuario_permissao_aluno
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `vw_usuario_permissao_aluno`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`wiquadro`@`%` SQL SECURITY DEFINER VIEW `vw_usuario_permissao_aluno` AS select `at`.`IdAluno` AS `idaluno`,`t`.`IdProfessor` AS `idusuario` from (`alunoturma` `at` join `turma` `t` on((`at`.`IdTurma` = `t`.`Id`))) union select `at`.`IdAluno` AS `idaluno`,`ar`.`IdResponsavel` AS `idusuario` from (`alunoturma` `at` join `alunoresponsavel` `ar` on((`at`.`IdAluno` = `ar`.`IdAluno`))) union select `at`.`IdAluno` AS `idaluno`,`ugu`.`IdUsuario` AS `idusuario` from ((((`alunoturma` `at` join `turma` `t` on((`at`.`IdTurma` = `t`.`Id`))) join `projetoescola` `pe` on((`t`.`IdProjetoEscola` = `pe`.`Id`))) join `usuariogrupousuario` `ugu` on((`pe`.`IdProjeto` = `ugu`.`IdProjeto`))) join `grupousuario` `gu` on(((`ugu`.`IdGrupoUsuario` = `gu`.`Id`) and (`gu`.`Nivel` >= 3)))) union select `at`.`IdAluno` AS `idaluno`,`ugu`.`IdUsuario` AS `idusuario` from (((((`alunoturma` `at` join `turma` `t` on((`at`.`IdTurma` = `t`.`Id`))) join `projetoescola` `pe` on((`t`.`IdProjetoEscola` = `pe`.`Id`))) join `projeto` `p` on((`pe`.`IdProjeto` = `p`.`Id`))) join `usuariogrupousuario` `ugu` on((`p`.`IdCliente` = `ugu`.`IdCliente`))) join `grupousuario` `gu` on(((`ugu`.`IdGrupoUsuario` = `gu`.`Id`) and (`gu`.`Nivel` >= 4))));
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

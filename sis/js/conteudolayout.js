@@ -49,15 +49,29 @@ $(function(){
                 $element.addClass('active');
             },
             reloadIframe = function(tipomidia, data){
-                if(tipomidia == 1)
+                var text = 1,
+                    swf = 7;
+
+                if(tipomidia === text)
                 {
                     $iframeContainer.removeAttr('src');
                     $iframeContainer.on('load', function(){
                         $(this).contents().find('body').html(data.Conteudo);
                     });
+                }else if(tipomidia === swf)
+                {
+                    $iframeContainer.removeAttr('src');
+                    $iframeContainer.on('load', function(){
+                        $(this).contents().find('body').html('<style>*{margin: 0; padding: 0;}</style>' +
+                        '<object width="100%" height="100%">' +
+                        '<param name="wmode" value="transparent" />' +
+                        '<param name="allowscriptaccess" value="sameDomain"/>' +
+                        '<embed wmode="transparent" src="' + data.Url + '" type="application/x-shockwave-flash" allowscriptaccess="sameDomain" allowfullscreen="true" width="100%" height="100%"></embed>' +
+                        '</object>');
+                    });
                 }else
                 {
-                    $iframeContainer.attr('src', data.Url + '&url_api=http://'+window.location.hostname);
+                    $iframeContainer.attr('src', data.Url + '&url_api=http://'+window.location.hostname + '&wmode=opaque');
                 }
             },
             showOrderTextOfCurrentEdcMidia = function(order){
@@ -67,7 +81,7 @@ $(function(){
                 if(seconds > 0)
                 {
                     SETINTERVAL_COUNTDOWN_ID = setInterval(function() {
-                        $forwardButton.attr('disabled', true).addClass('disabled').text(seconds+'s');
+                        $forwardButton.attr('disabled', true).addClass('disabled').removeClass('fa').css({color: '#EEE'}).text(seconds);
                         if(seconds <= 0) {
                             $forwardButton.text("");
                             clearCountdown();
@@ -85,7 +99,7 @@ $(function(){
                 }*/
             },
             setEdcMidiaAsFinished = function(edcMidiaId){
-                $.ajax({
+                return $.ajax({
                     type: 'post',
                     url: '/plataforma/setEdcmidiaAsFinished',
                     data: {edcMidiaId: edcMidiaId, alunoTurmaEdcId: $alunoTurmaEdcId.val()}
@@ -127,23 +141,22 @@ $(function(){
             },
             clearCountdown = function(){
                 clearInterval(SETINTERVAL_COUNTDOWN_ID);
-                $forwardButton.text("");
+                $forwardButton.addClass('fa').css({color: '#13a4e2'}).text("");
             },
             defaultStateForwardButton = function(){
                 $forwardButton.attr('disabled', false);
             },
             openEdcMidia = function($element, changeurl){
-                $(".progresso").hide();
-                $(".progresso-wait").show();
+                
 
                 if($element.length)
                 {
                     if(isEdcMidiaDisabled($element))
                     {
-                        window.WiAlert('warning', 'O próximo conteúdo ainda não está disponível.');
                         return false;
                     }
-
+                    $(".progresso").hide();
+                    $(".progresso-wait").show();
                     if(changeurl !== false)
                     {
                         changeUrlWithEdcMidia($element.data('id'));
@@ -195,7 +208,10 @@ $(function(){
                     //Trecho que verifica se a midia acessada é a ultima da lição.
                     if(checkIfIsTheLastEdcmidia())
                     {
-                        recordConclusionDateForEdc(edcMidiaActive().data('id'), $alunoTurmaId.val());
+                        setEdcMidiaAsFinished(edcMidiaActive().data('id'))
+                        .done(function(){
+                            recordConclusionDateForEdc(edcMidiaActive().data('id'), $alunoTurmaId.val());
+                        });
                     }
                 }
             },
@@ -570,6 +586,12 @@ $(function(){
 
                     $commentsModalButton.on('click', onClickCommentsModalButton);
                 };
+
+                $("#content").load(function(){
+                    $(".progresso").show();
+                    $(".progresso-wait").hide();
+
+                });
             },
             releaseNextEdcmidia: releaseNextEdcmidia,
             goToNextEdcMidia: goToNextEdcMidia

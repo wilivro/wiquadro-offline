@@ -8,6 +8,31 @@ $(document).ready(function() {
 
     $wItem.first().addClass('active');
 
+
+    var tempo = $tempoRestantePopOver.attr('data-tempo-restante').split(':');
+    var countSec = 0;
+    $(".tRestante").text(tempo[0]+'h ' +tempo[1]+'m');
+    var clock = setInterval(function(){
+        tempo[2] = 59 - countSec;
+        if(tempo[1] == 0 && tempo[0] == 0){
+            $(".tRestante").text(tempo[2]+'s').css({color:'#F00'});
+            if(!tempo[2]){
+                clearInterval(clock);
+                return;
+            }
+        }
+        if(tempo[2] == 0){
+            tempo[1] -= 1;
+            $(".tRestante").text(tempo[0]+'h ' +tempo[1]+'m');
+        }
+        if(tempo[1] == 0 && tempo[0] > 0){
+            tempo[1] = 59;
+            tempo[0] -= 1;
+            $(".tRestante").text(tempo[0]+'h ' +tempo[1]+'m');
+        }
+        countSec = (countSec + 1)%60;
+    },1000);
+
     var onShowTempoRestantePopOver = function() {
         var qtd = $(".w-item.respondido").length;
         var qtdT = $("#popOverTimeContent .totalQuest").text();
