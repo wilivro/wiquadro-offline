@@ -201,13 +201,15 @@ $(document).ready(function()
 
                                 var $disciplinaLabel = $('.disciplinaLabel'),
                                     disciplinaId = $disciplinaLabel.data('id'),
-                                    clienteId = $disciplinaLabel.data('clienteid');
+                                    clienteId = $disciplinaLabel.data('clienteid'),
+                                    projetoId = $("input#IdProjeto").val();
 
                                 $.ajax({
                                     type: 'post',
                                     data: {Cartoes:{
                                         IdDisciplina:disciplinaId,
                                         IdCliente:clienteId,
+                                        IdProjeto: projetoId,
                                         IdTurma:parseInt($("[name='Alunoturma[IdTurma]']").val()),
                                         quantidade:1,
                                         Email:email
