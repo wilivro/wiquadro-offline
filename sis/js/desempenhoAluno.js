@@ -136,6 +136,64 @@ $(function () {
                     },
                     series: series2
                 });
+                var series2BarJSON = $.extend(series2[0],{colorByPoint:true});
+                var series2Bar = [series2BarJSON];
+                $('#desempenho-chart2-bar').highcharts({
+                    chart: {
+                        type: 'column',
+                        height: 400,
+                        marginBottom:100,
+                        options3d: {
+                            enabled: false,
+                            alpha: 30,
+                            beta: 10,
+                            depth: 20,
+                            viewDistance: 200
+                        }
+                    },
+                    plotOptions: {
+                        column: {
+                            depth: 15
+                        }
+                    },
+
+                    title: {
+                        align: 'right',
+                        useHTML: true,
+                        text: '<span title="" class="label label-info">?</span>',
+                        x: -60,
+                        y: 10
+                    },
+
+                    pane: {
+                        size: '80%'
+                    },
+
+                    xAxis: {
+                        categories: categories,
+                        tickmarkPlacement: 'on',
+                        lineWidth: 0,
+                    },
+
+                    yAxis: {
+                        lineWidth: 0,
+                        min: 0,
+                        max: 110
+                    },
+
+                    tooltip: {
+                        shared: true,
+                        pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}%</b><br/>'
+                    },
+
+                    legend: {
+                        enabled: false
+                    },
+                    exporting: {
+                        enabled: false
+                    },
+                    series: series2Bar
+                });
             }
             if (!seriesRaw.length && total.length) {
                 $('#desempenho-chart-default').highcharts({

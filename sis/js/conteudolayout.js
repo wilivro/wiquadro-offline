@@ -376,9 +376,10 @@ $(function(){
                         data: {alunoTurmaId: alunoTurmaId},
                         dataType: 'json'
                     }).done(function(data){
-                        urlTurmaChat = 'http://wiquadro.com.br:5001/';
+                        urlTurmaChat = 'http://'+window.location.hostname+':5001/';
                         urlTurmaChat += '?guid=' + data.guid;
                         urlTurmaChat += '&idturma=' + data.idturma;
+                        urlTurmaChat += '&idDisciplina=' + data.idDisciplina;
 
                         $('#turmaChatIframe').attr('src', urlTurmaChat);
                         $('#turmaChat').css({width: '100%'}).modal("show");
