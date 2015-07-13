@@ -78,7 +78,9 @@ $(document).ready(function()
             var chatUrl = $(id).attr('href');
             var $chatModal = $('#chatModal');
 
-            $chatModal.find('iframe').attr('src', chatUrl);
+            $chatModal.find('iframe').each(function(i, e){
+                $(e).attr('src', chatUrl+"&idProjeto="+$(e).data('projeto'));
+            });
             $chatModal.modal('show');
         };
         
@@ -92,7 +94,7 @@ $(document).ready(function()
             init: function()
             {
                 initGridster();
-                $('li > a').on('click', verificarLinks);
+                $('#ul-dashBoard li > a').on('click', verificarLinks);
 //                $('#btnAtendimento').on('click', openAtendimentoPopup);
 //                $('#btnChat').on('click', openChatModal);
                 $('.tooltipDashBoard').on('click', simulaClick);
